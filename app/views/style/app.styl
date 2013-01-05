@@ -1,0 +1,49 @@
+// RESET
+body, html, ul, ol, li, h1, h2
+	margin: 0
+	padding: 0
+
+// Config
+@import "mixins"
+body, html 
+	font-size: 12px
+	line-height: 16px
+
+#map
+	width: 100%
+	height: 320px
+#info
+	width: 100%
+	display: table
+
+#info
+	infoBackgroundColor = #000022
+	infoTextColor = #ffd90c
+	background: infoBackgroundColor
+	color: infoTextColor
+	.property
+		float: left
+		width: 45%
+		margin: 0 2% 2% 2%
+		display: inline-block
+		border-radius(1em)
+		border: 1px solid mix(infoBackgroundColor, infoTextColor)
+		.label
+			padding-top: 0.25em
+			text-align: center
+			color: mix(infoBackgroundColor, infoTextColor)
+			font-size: 1em
+			line-height: 1em
+		.value
+			font-weight: bold
+			line-height: 1em
+			text-align: center
+			font-size: 2.25em
+
+	.lastUpdate
+		border: none
+		float: none
+		width: 96%
+		.value 
+			font-weight: none
+			font-size: 0.75em

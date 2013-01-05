@@ -1,0 +1,54 @@
+{
+  "name": "socket-ticker",
+  "version": "1.0.0",
+  "author": {
+    "name": "foobugs",
+    "email": "mail@foobugs.com?subject=spritmap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:foobugs/spritmap.git"
+  },
+  "contributors": [
+    {
+      "name": "Marcel Eichner",
+      "email": "marcel.eichner@foobugs.com"
+    }
+  ],
+  "engines": {
+    "node": "0.8.x",
+    "npm": ">=1.1.x"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "test": "brunch test",
+    "postinstall": "brunch build --minify"
+  },
+  "main": "./server.coffee",
+  "dependencies": {
+    "statik": ">= 1.1.0", 
+    "brunch": ">= 1.5",
+    "coffee-script": "*",
+    "javascript-brunch": ">= 1.0 < 1.5",
+    "coffee-script-brunch": ">= 1.0 < 1.5",
+    "css-brunch": ">= 1.0 < 1.5",
+    "stylus-brunch": ">= 1.0 < 1.5",
+
+    "handlebars-brunch": ">= 1.0 < 1.5",
+
+    "uglify-js-brunch": ">= 1.0 < 1.5",
+    "clean-css-brunch": ">= 1.0 < 1.5",
+
+    "connect": "*",
+    "express": "*",
+    "path": "*",
+    "qs": ">=0.5.3",
+    "http-get": ">=0.5.1",
+    "xml2js": ">=0.2.2"
+  },
+  "devDependencies": {
+    "chai": "1.2.0",
+    "sinon": "1.4.2",
+    "sinon-chai": "2.1.2"
+  }
+}

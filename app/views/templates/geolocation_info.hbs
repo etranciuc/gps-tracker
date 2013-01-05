@@ -1,0 +1,51 @@
+<div class="property lastUpdate">
+	<div class="value">{{lastUpdate}}</div>
+</div>
+<div class="property">
+	<div class="label">latitude</div>
+	<div class="value">{{formatNumber latitude 6}}</div>
+</div>
+<div class="property">
+	<div class="label">longitude</div>
+	<div class="value">{{formatNumber longitude 6}}</div>
+</div>
+<div class="property">
+	<div class="label">accuracy m</div>
+	<div class="value">
+		{{#if accuracy}}
+			{{formatNumber accuracy 0}}
+		{{else}}
+			-
+		{{/if}}
+	</div>
+</div>
+<div class="property">
+	<div class="label">heading</div>
+	<div class="value">
+		{{#if heading}}
+			{{heading}}°
+		{{else}}
+			-
+		{{/if}}
+	</div>
+</div>
+<div class="property">
+	<div class="label">alt m</div>
+	<div class="value">
+		{{#if altitude}}
+			{{formatNumber altitude 2}}
+		{{else}}
+			-
+		{{/if}}
+	</div>
+</div>
+<div class="property">
+	<div class="label">speed m/s</div>
+	<div class="value">
+		{{#if speed}}
+			{{formatNumber speed 0}}
+		{{else}}
+			-
+		{{/if}}
+	</div>
+</div>

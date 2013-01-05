@@ -1,0 +1,41 @@
+[
+  {
+    "id": 34,
+    "count": 0,
+    "name": "Jet",
+    "address": "Herzbergstr. 27",
+    "zip": "10365",
+    "city": "Berlin",
+    "distance": 3.06,
+    "price": 1.421,
+    "created": "2012-12-27 00:25:16",
+    "latitude": 52.5264,
+    "longitude": 13.4898
+  },
+  {
+    "id": 1973,
+    "count": 1,
+    "name": "Star",
+    "address": "Rhinstr. 47",
+    "zip": "10315",
+    "city": "Berlin",
+    "distance": 4.67,
+    "price": 0.179,
+    "created": "2012-12-27 00:25:22",
+    "latitude": 52.5228,
+    "longitude": 13.5189
+  },
+  {
+    "id": 39,
+    "count": 2,
+    "name": "STAR",
+    "address": "Siegfriedstr. 170",
+    "zip": "10365",
+    "city": "Berlin",
+    "distance": 3.48,
+    "price": 1.379,
+    "created": "2012-12-27 00:25:21",
+    "latitude": 52.5243,
+    "longitude": 13.4991
+  }
+]
