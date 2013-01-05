@@ -1,13 +1,13 @@
 {
-  "name": "socket-ticker",
+  "name": "gps-tracker",
   "version": "1.0.0",
   "author": {
     "name": "foobugs",
-    "email": "mail@foobugs.com?subject=spritmap"
+    "email": "mail@foobugs.com?subject=gps-tracker"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:foobugs/spritmap.git"
+    "url": "git@github.com:foobugs/gps-tracker.git"
   },
   "contributors": [
     {

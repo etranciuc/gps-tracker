@@ -9,11 +9,11 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 # Demo
 
-[http://spritmap.herokuapp.com](http://spritmap.herokuapp.com)
+[http://gps-tracker.herokuapp.com](http://gps-tracker.herokuapp.com)
 
 # donate
 
-There will be donations for this project soon. If you whish to donate write to [mail@foobugs.com](mail:mail@foobugs.com?subject=spritmap)
+There will be donations for this project soon. If you whish to donate write to [mail@foobugs.com](mail:mail@foobugs.com?subject=gps-tracker)
 
 # build
 
@@ -22,3 +22,7 @@ There will be donations for this project soon. If you whish to donate write to [
 # run
 
 	brunch watch --server
+
+or
+
+	foreman start
