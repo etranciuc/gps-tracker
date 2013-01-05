@@ -41,10 +41,7 @@
 
     "connect": "*",
     "express": "*",
-    "path": "*",
-    "qs": ">=0.5.3",
-    "http-get": ">=0.5.1",
-    "xml2js": ">=0.2.2"
+    "path": "*"
   },
   "devDependencies": {
     "chai": "1.2.0",
