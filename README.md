@@ -1,28 +1,32 @@
-# Description
+# GPS Tracker
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+![Screenshot](raw.github.com/foobugs/gps-tracker/master/screenshot.png)
+
+This project uses the [geolocation API](dev.w3.org/geo/api/spec-source.html) (if provided by the web-client) to show a map and information about the client’s real location.
+
+It also is an experiment to see which clients (mobile devices) provide which informations and update intervals when using `watchPosition`.
+
+This project was build using [brunch](http://brunch.io/) as a boilerplate for a [backbone](backbonejs.org)/[chaplin](http://chaplinjs.org/) application. It’s hosted on heroku which provides a nice environment for such litte projects.
 
 # Demo
 
 [http://gps-tracker.herokuapp.com](http://gps-tracker.herokuapp.com)
 
-# donate
+# Build & Run
 
-There will be donations for this project soon. If you whish to donate write to [mail@foobugs.com](mail:mail@foobugs.com?subject=gps-tracker)
+## Requirements
 
-# build
+* NPM
+* Node
 
-	brunch build
+## Installing
 
-# run
+* Download or clone repository and install dependencies using `npm install`.
+* After that you can run the static server on your computer with `brunch watch --server` or if you have [foreman](https://npmjs.org/package/foreman) installed `forman start`
 
-	brunch watch --server
+## Contact
 
-or
+If you have questions or anything else …
 
-	foreman start
+* Twitter: [@foobugs](https://twitter.com/foobugs)
+* E-Mail: [mail@foobugs.com](mail:mail@foobugs.com?subject=gps-tracker)

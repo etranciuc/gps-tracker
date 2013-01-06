@@ -15,6 +15,12 @@
       "email": "marcel.eichner@foobugs.com"
     }
   ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/foobugs/gps-tracker/raw/master/LICENSE"
+    }
+  ],
   "engines": {
     "node": "0.8.x",
     "npm": ">=1.1.x"
