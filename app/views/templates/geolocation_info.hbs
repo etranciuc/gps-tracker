@@ -3,11 +3,23 @@
 </div>
 <div class="property">
 	<div class="label">latitude</div>
-	<div class="value">{{formatNumber latitude 6}}</div>
+	<div class="value">
+		{{#if latitude}}
+			{{formatNumber latitude 6}}
+		{{else}}
+			-
+		{{/if}}
+	</div>
 </div>
 <div class="property">
 	<div class="label">longitude</div>
-	<div class="value">{{formatNumber longitude 6}}</div>
+	<div class="value">
+		{{#if longitude}}
+			{{formatNumber longitude 6}}
+		{{else}}
+			-
+		{{/if}}
+	</div>
 </div>
 <div class="property">
 	<div class="label">accuracy m</div>
@@ -23,7 +35,7 @@
 	<div class="label">heading</div>
 	<div class="value">
 		{{#if heading}}
-			{{heading}}°
+			{{formatNumber heading 0}}°
 		{{else}}
 			-
 		{{/if}}
