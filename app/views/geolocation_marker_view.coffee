@@ -34,12 +34,15 @@ module.exports = class GeolocationMarkerView extends MarkerView
     @circle = new google.maps.Circle options
     @
 
+  reCenter: ->
+    @options.map.setCenter @marker.getPosition()
+
   onPositionChange: (geolocation) =>
     super
     # set circle to new position
     @circle.setCenter @marker.getPosition()
     # # re-set center of the map to my position
-    @options.map.setCenter @marker.getPosition()
+    @reCenter()
     @
 
   onAccuracyChange: (geolocation) =>

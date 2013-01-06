@@ -17,9 +17,15 @@ module.exports = class HomePageView extends PageView
     
   onWindowSizeChange: =>
     windowHeight = $(window).height()
+    # info
     @infoView = @subview 'info'
+    # map
     @mapView = @subview 'map'
-    @mapView.$el.height windowHeight - @infoView.$el.outerHeight()
+    @mapView.$el.css
+      height: windowHeight - @infoView.$el.outerHeight()
+      widht: $(window).width()
+    @positionMarkerView = @subview 'positionMarker'
+    @positionMarkerView.reCenter()
     @
 
   renderSubviews: ->
