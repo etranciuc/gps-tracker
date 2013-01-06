@@ -1,6 +1,6 @@
 # GPS Tracker
 
-![Screenshot](raw.github.com/foobugs/gps-tracker/master/screenshot.png)
+![Screenshot](https://raw.github.com/foobugs/gps-tracker/master/screenshot.png)
 
 This project uses the [geolocation API](dev.w3.org/geo/api/spec-source.html) (if provided by the web-client) to show a map and information about the client’s real location.
 
