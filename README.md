@@ -1,6 +1,6 @@
 # GPS Tracker
 
-<img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" style="float: right" width="320" height="444" />
+<img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" align="right" width="320" height="444" />
 
 This project uses the [geolocation API](dev.w3.org/geo/api/spec-source.html) (if provided by the web-client) to show a map and information about the client’s real location.
 
