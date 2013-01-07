@@ -2,12 +2,12 @@ Model = require 'models/base/model'
 
 module.exports = class Geolocation extends Model
 
+  # http://dev.w3.org/geo/api/spec-source.html
   options: 
-    timeout: 5 * 1000
-    maximumAge: 1000 * 60 * 15
+    timeout: 30 * 1000
+    maximumAge: 5 * 1000
     enableHighAccuracy: true
     frequency: 5000
-    maximumAge: 5000
 
   defaults:
      longitude: null
@@ -30,15 +30,29 @@ module.exports = class Geolocation extends Model
       Unable to find navigator.geolocation support in the current client
       """
     else
-      navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
-      @watchId = navigator.geolocation.watchPosition @onPositionUpdate
+      @pollCurrentPosition()
+      @watchPosition()  
+       
+  pollCurrentPosition: =>
+    navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
+
+  watchPosition: =>
+    @watchId = navigator.geolocation.watchPosition @onPositionUpdate
 
   onPositionUpdate: (position) =>
+    
+    # android devices need to get getCurrentPosition called in a defined interval
+    # because watchPosition does not work
+    isAndroid = navigator.userAgent.toLowerCase().indexOf('android') > -1
+    if isAndroid
+      window.setTimeout @pollCurrentPosition, @options.frequency
+
     unless position.coords
-      throw new Error """
-      Position update with invalid position hash. (position.coords expected)
-      """
-    if position.timestamp
+      @onError "Position update with invalid position hash. (position.coords expected)"
+      return
+
+    # transform position timestamp to real Date instance  
+    if position.timestamp?
       timestampString = new String position.timestamp
       # chrome contains timestamp in seconds and all other browsers in
       # seconds so we need to calculate a bit here
@@ -48,12 +62,13 @@ module.exports = class Geolocation extends Model
       @set 'lastUpdate', date
     else
       @set 'lastUpdate', new Date()
+
+    # update model with data from position.coords
     @set position.coords
 
   onError: (error) =>
-    trigger 'error', @, error
+    @trigger 'error', @, error
     console.error error
-    alert error
 
   toString: ->
     unless @get('longitude') and @get('latitude')

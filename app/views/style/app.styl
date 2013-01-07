@@ -21,6 +21,15 @@ body, html
 	infoTextColor = #ffd90c
 	background: infoBackgroundColor
 	color: infoTextColor
+
+	.error 
+		border: none
+		color: mix(infoTextColor, white)
+		background-color: mix(infoBackgroundColor, red)
+		text-align: center
+		line-height: 2em
+		margin-bottom: 0.5em
+
 	.property
 		float: left
 		width: 45%
@@ -41,6 +50,7 @@ body, html
 			font-size: 2.25em
 
 	.lastUpdate
+		margin: 0 0 0.5em 0
 		border: none
 		float: none
 		width: 96%
