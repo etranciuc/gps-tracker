@@ -22,8 +22,8 @@ module.exports = class HomePageView extends PageView
     # map
     @mapView = @subview 'map'
     @mapView.resize(
-      windowHeight - @infoView.$el.outerHeight(),
-      $(window).width()
+      $(window).width(),
+      windowHeight - @infoView.$el.outerHeight()
     )
     @positionMarkerView = @subview 'positionMarker'
     @positionMarkerView.reCenter()

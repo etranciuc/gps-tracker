@@ -14,8 +14,8 @@ module.exports = class MapView extends View
 
   resize: (width, height) ->
     @$el.css
-      height: width
-      widht: height
+      height: height
+      widht: width
     google.maps.event.trigger @map, 'resize'
     @trigger 'resize', @, width, height
     @

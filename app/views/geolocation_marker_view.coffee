@@ -3,13 +3,12 @@ MarkerView = require 'views/base/marker_view'
 module.exports = class GeolocationMarkerView extends MarkerView
 
   options:
-    # circle
     fillColor: '#4579fd'
     fillOpacity: 0.125
     strokeColor: '#2d4fd1'
     strokeOpacity: 1
     strokeWeight: 1
-
+    clickable: false
 
   circle: null
 
