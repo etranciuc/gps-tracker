@@ -7,6 +7,7 @@ module.exports = class Geolocation extends Model
     maximumAge: 1000 * 60 * 15
     enableHighAccuracy: true
     frequency: 5000
+    maximumAge: 5000
 
   defaults:
      longitude: null
@@ -15,6 +16,8 @@ module.exports = class Geolocation extends Model
      altitude: false
      heading: false
      lastUpdate: false
+
+  watchId: null
 
   getters:
     latLng: ->
@@ -28,7 +31,7 @@ module.exports = class Geolocation extends Model
       """
     else
       navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
-      navigator.geolocation.watchPosition @onPositionUpdate
+      @watchId = navigator.geolocation.watchPosition @onPositionUpdate
 
   onPositionUpdate: (position) =>
     unless position.coords
