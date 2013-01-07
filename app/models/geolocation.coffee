@@ -6,6 +6,7 @@ module.exports = class Geolocation extends Model
     timeout: 5 * 1000
     maximumAge: 1000 * 60 * 15
     enableHighAccuracy: true
+    frequency: 5000
 
   defaults:
      longitude: null
@@ -49,6 +50,7 @@ module.exports = class Geolocation extends Model
   onError: (error) =>
     trigger 'error', @, error
     console.error error
+    alert error
 
   toString: ->
     unless @get('longitude') and @get('latitude')

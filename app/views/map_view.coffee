@@ -11,6 +11,14 @@ module.exports = class MapView extends View
     mapTypeId: google.maps.MapTypeId.ROADMAP
 
   map: null
+
+  resize: (width, height) ->
+    @$el.css
+      height: width
+      widht: height
+    google.maps.event.trigger @map, 'resize'
+    @trigger 'resize', @, width, height
+    @
     
   render: ->
     super

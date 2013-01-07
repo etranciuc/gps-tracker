@@ -50,7 +50,7 @@ module.exports = class GeolocationMarkerView extends MarkerView
     radius =
       if accuracy is false
         50
-      else if accuracy > 20
+      else if accuracy > 5
         accuracy
       else
         0
