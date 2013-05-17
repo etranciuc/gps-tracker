@@ -3,6 +3,8 @@ mediator = require 'mediator'
 routes = require 'routes'
 Layout = require 'views/layout'
 
+# C = require 'controllers/home_controller'
+
 # The application object
 module.exports = class Application extends Chaplin.Application
   # Set your application name here so the document title is set to
@@ -21,7 +23,7 @@ module.exports = class Application extends Chaplin.Application
     @initControllers()
 
     # Register all routes and start routing
-    @initRouter routes
+    @initRouter routes, pushState: false
 
     # You might pass Router/History options as the second parameter.
     # Chaplin enables pushState per default and Backbone uses / as

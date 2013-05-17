@@ -46,7 +46,7 @@ module.exports = class Geolocation extends Model
     @watchId = navigator.geolocation.watchPosition @onPositionUpdate
 
   onPositionUpdate: (position) =>
-
+    
     unless position.coords
       @onError "Position update with invalid position hash. (position.coords expected)"
       return

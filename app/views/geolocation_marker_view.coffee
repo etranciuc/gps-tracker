@@ -20,7 +20,7 @@ module.exports = class GeolocationMarkerView extends MarkerView
     super
     # replace icon
     imageSize = 24
-    image = new google.maps.MarkerImage '/images/poi.png',
+    image = new google.maps.MarkerImage 'images/poi.png',
       new google.maps.Size(imageSize, imageSize),
       new google.maps.Point(0,0),
       new google.maps.Point(imageSize / 4, imageSize / 4)
