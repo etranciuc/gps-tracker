@@ -4,6 +4,7 @@ MapView = require 'views/map_view'
 Geolocation = require 'models/geolocation'
 GeolocationMarkerView = require 'views/geolocation_marker_view'
 GeolocationInfoView = require 'views/geolocation_info_view'
+MapRouteView = require 'views/map_route_view'
 
 module.exports = class HomePageView extends PageView
 
@@ -37,6 +38,9 @@ module.exports = class HomePageView extends PageView
     # add a marker for the geolocation of the client
     geolocation = new Geolocation
     @subview 'positionMarker', new GeolocationMarkerView
+      map: @subview('map').map
+      model: geolocation
+    @subview 'route', new MapRouteView
       map: @subview('map').map
       model: geolocation
     @subview 'info', new GeolocationInfoView

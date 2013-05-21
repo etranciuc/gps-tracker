@@ -7,7 +7,7 @@ module.exports = class MapView extends View
   autoRender: yes
 
   options:
-    zoom: 18
+    zoom: 17
     mapTypeId: google.maps.MapTypeId.ROADMAP
 
   map: null
