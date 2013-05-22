@@ -5,6 +5,8 @@ Geolocation = require 'models/geolocation'
 GeolocationMarkerView = require 'views/geolocation_marker_view'
 GeolocationInfoView = require 'views/geolocation_info_view'
 MapRouteView = require 'views/map_route_view'
+ConfigView = require 'views/config_view'
+Config = require 'models/config'
 
 module.exports = class HomePageView extends PageView
 
@@ -47,4 +49,7 @@ module.exports = class HomePageView extends PageView
       model: geolocation
       container: @$el
       containerMethod: 'append'
+    @subview 'config', new ConfigView
+      model: new Config
+
     super
