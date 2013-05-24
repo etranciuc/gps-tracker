@@ -22,7 +22,7 @@ module.exports = class MapRouteView extends View
     @render()
 
   render: =>
-    if @route.length <= 1
+    if @route.length < 2
       return
     coords = @route.pluck('latLng');
     

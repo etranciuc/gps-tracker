@@ -33,19 +33,14 @@ module.exports = class GeolocationMarkerView extends MarkerView
     @circle = new google.maps.Circle options
     @
 
-  reCenter: ->
-    @options.map.setCenter @marker.getPosition()
-
   onPositionChange: (geolocation) =>
     super
-    # set circle to new position
     @circle.setCenter @marker.getPosition()
-    # # re-set center of the map to my position
-    @reCenter()
     @
 
   onAccuracyChange: (geolocation) =>
     accuracy = geolocation.get 'accuracy'
+    # only draw radius of accuracy if it’s beyond 5m
     radius =
       if accuracy is false
         50

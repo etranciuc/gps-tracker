@@ -14,13 +14,24 @@ module.exports = class HomePageView extends PageView
 
   template: template
 
+  geolocation: null
+  config: null
+
   initialize: ->
     super
+    # central point of interest is the geolocation of the client
+    @geolocation = new Geolocation
+    @config = new Config
+
+    # bind events to geolocation changes and config
+    @geolocation.on 'change', (position) =>
+
+      
     # TODO Find a way to update the layout without using an interval. One way
     # could be using the resize event or a later callback or initial call to 
     # @onWindowSizeChange
     window.setInterval @onWindowSizeChange, 1500
-    
+
   onWindowSizeChange: =>
     windowHeight = $(window).height()
     # info
@@ -33,27 +44,31 @@ module.exports = class HomePageView extends PageView
       $(window).width(),
       windowHeight - infoView.$el.outerHeight() - configView.$el.outerHeight()
     )
-    @positionMarkerView = @subview 'positionMarker'
-    @positionMarkerView.reCenter()
+
+    # recenter view if it’s enabled in the config
+    if @config.get 'autoCenter'
+      mapView = @subview 'map'
+      mapView.setCenter(@geolocation)
     @
 
   renderSubviews: ->
+    @subview 'config', new ConfigView
+      model: @config
+
     # map
     @subview 'map', new MapView
       container: @$el
       containerMethod: 'append'
-    # add a marker for the geolocation of the client
-    geolocation = new Geolocation
-    @subview 'positionMarker', new GeolocationMarkerView
-      map: @subview('map').map
-      model: geolocation
-    @subview 'route', new MapRouteView
-      map: @subview('map').map
-      model: geolocation
     @subview 'info', new GeolocationInfoView
-      model: geolocation
+      model: @geolocation
       container: @$el
       containerMethod: 'append'
-    @subview 'config', new ConfigView
-      model: new Config
+    # add a marker for the geolocation of the client    
+    @subview 'positionMarker', new GeolocationMarkerView
+      map: @subview('map').map
+      model: @geolocation
+
+    @subview 'route', new MapRouteView
+      map: @subview('map').map
+      model: @geolocation
     super

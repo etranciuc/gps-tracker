@@ -18,6 +18,10 @@ module.exports = class MapView extends View
       'margin-top': y
     @
 
+  setCenter: (getPosition) ->
+    @map.setCenter getPosition.get('latLng')
+    @
+
   resize: (width, height) ->
     @$el.css
       height: height
