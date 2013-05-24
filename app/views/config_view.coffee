@@ -7,6 +7,8 @@ module.exports = class ConfigView extends View
   template: template
   container: '#app'
 
+  className: 'navbar navbar-fixed'
+
   id: "config"
 
   initialize: ->

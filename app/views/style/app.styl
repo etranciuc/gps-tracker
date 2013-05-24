@@ -1,32 +1,85 @@
+@import "mixins"
+
+// config
+font-size = 14px
+line-height = font-size * 1.4
+
+
 // RESET
 body, html, ul, ol, li, h1, h2
 	margin: 0
 	padding: 0
 
-// Config
-@import "mixins"
-body, html 
-	font-size: 12px
-	line-height: 16px
+// mixins
+box-shadow()
+	-webkit-box-shadow arguments
+	-moz-box-shadow arguments
+	box-shadow arguments
+
+body, html
+	font-size: font-size
+	line-height: line-height
+
+.pull-right
+	float: right
+
+a.brand
+	font-size: font-size * 1.5
+	line-height: font-size * 2.25
+	color: #fff
+	font-weight: bold
+	text-transform: uppercase
+	text-decoration: none
+	margin: 0 1em 0 0
+
+// navigation bar
+.navbar
+	background: #1fb18a
+	width: 100%
+.navbar-inner
+	padding: 0.5em
+	&:after, &:before
+		display: table
+		line-height: 0
+		content: ""
+	&:after
+		clear: both
+.navbar-fixed
+	z-index: 9999
+	position: fixed
+	top: 0
+	left: 0
+
+// buttons
+btn(color)
+	border: none
+	color: #fff
+	padding: 0.5em 0.8em 0.35em
+	margin-bottom: 0.2em
+	border-radius 0.25em
+	background: color
+	box-shadow: darken(color, 15) 0px 2px
+	&:focus, &:hover
+		background: lighten(color, 20%)
 
 .btn
-	border: 1px solid black
-	color: white
-	background: red
+	btn #bdc3c7
+.btn-primary
+	btn #1abc9c
 .btn-active
-	background-color: green
+	btn #3498db
+.btn-disabled
+	btn #c7cccf
+.btn-danger
+	btn #df342e
 
+
+// map
 #map
 	width: 100%
 	height: 320px
-#config
-	z-index: 9999
-	position: absolute
-	margin: 0 50%
-	background: black
-	padding: 1 em
-	color: white
-	text-align: center
+
+// info display
 #info
 	width: 100%
 	display: table
