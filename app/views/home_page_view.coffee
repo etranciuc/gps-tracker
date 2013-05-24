@@ -16,17 +16,22 @@ module.exports = class HomePageView extends PageView
 
   initialize: ->
     super
-    window.setInterval @onWindowSizeChange, 500
+    # TODO Find a way to update the layout without using an interval. One way
+    # could be using the resize event or a later callback or initial call to 
+    # @onWindowSizeChange
+    window.setInterval @onWindowSizeChange, 1500
     
   onWindowSizeChange: =>
     windowHeight = $(window).height()
     # info
-    @infoView = @subview 'info'
+    infoView = @subview 'info'
+    configView = @subview 'config'
     # map
     @mapView = @subview 'map'
+    @mapView.position 0, configView.$el.outerHeight()
     @mapView.resize(
       $(window).width(),
-      windowHeight - @infoView.$el.outerHeight()
+      windowHeight - infoView.$el.outerHeight() - configView.$el.outerHeight()
     )
     @positionMarkerView = @subview 'positionMarker'
     @positionMarkerView.reCenter()
@@ -51,5 +56,4 @@ module.exports = class HomePageView extends PageView
       containerMethod: 'append'
     @subview 'config', new ConfigView
       model: new Config
-
     super

@@ -12,6 +12,12 @@ module.exports = class MapView extends View
 
   map: null
 
+  position: (x, y) ->
+    @$el.css
+      'margin-left': x
+      'margin-top': y
+    @
+
   resize: (width, height) ->
     @$el.css
       height: height
