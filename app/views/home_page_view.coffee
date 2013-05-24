@@ -26,6 +26,14 @@ module.exports = class HomePageView extends PageView
     # bind events to geolocation changes and config
     @geolocation.on 'change', (position) =>
 
+    # bind event to config changes
+    @config.on 'change:trackRoute', (config, value) =>
+      if value  
+        @subview 'route', new MapRouteView
+          map: @subview('map').map
+          model: @geolocation
+      else
+        @subview('route').dispose()
       
     # TODO Find a way to update the layout without using an interval. One way
     # could be using the resize event or a later callback or initial call to 
@@ -65,10 +73,6 @@ module.exports = class HomePageView extends PageView
       containerMethod: 'append'
     # add a marker for the geolocation of the client    
     @subview 'positionMarker', new GeolocationMarkerView
-      map: @subview('map').map
-      model: @geolocation
-
-    @subview 'route', new MapRouteView
       map: @subview('map').map
       model: @geolocation
     super
