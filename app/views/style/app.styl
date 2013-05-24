@@ -1,7 +1,7 @@
 @import "mixins"
 
 // config
-font-size = 14px
+font-size = 12px
 line-height = font-size * 1.4
 
 
@@ -17,6 +17,8 @@ box-shadow()
 	box-shadow arguments
 
 body, html
+	font-weight: 300
+	font-family: "Roboto"
 	font-size: font-size
 	line-height: line-height
 
@@ -24,17 +26,17 @@ body, html
 	float: right
 
 a.brand
-	font-size: font-size * 1.5
-	line-height: font-size * 2.25
+	font-size: font-size * 2
+	line-height: font-size * 2.125
 	color: #fff
-	font-weight: bold
+	font-weight: 300
 	text-transform: uppercase
 	text-decoration: none
 	margin: 0 1em 0 0
 
 // navigation bar
 .navbar
-	background: #1fb18a
+	background: #1a9172
 	width: 100%
 .navbar-inner
 	padding: 0.5em
@@ -52,6 +54,7 @@ a.brand
 
 // buttons
 btn(color)
+	font-weight: 500
 	border: none
 	color: #fff
 	padding: 0.5em 0.8em 0.35em
@@ -84,8 +87,11 @@ btn(color)
 	width: 100%
 	display: table
 #info
-	infoBackgroundColor = #1c1a08
-	infoTextColor = #ffd90c
+	infoBackgroundColor = #1fb18a
+	infoTextColor = #ffffff
+	infoBoxBackgroundColor = infoBackgroundColor
+	infoBoxBorderColor = #1a9172
+	infoBoxTextColor = infoTextColor
 	background: infoBackgroundColor
 	color: infoTextColor
 
@@ -103,18 +109,20 @@ btn(color)
 		margin: 0 2% 2% 2%
 		display: inline-block
 		border-radius(1em)
-		border: 1px solid mix(infoBackgroundColor, infoTextColor)
+		border: 1px solid infoBoxBorderColor
+		background: infoBoxBackgroundColor
+		color: infoBoxTextColor
 		.label
-			padding-top: 0.25em
+			padding-top: 0.125em
 			text-align: center
-			color: mix(infoBackgroundColor, infoTextColor)
 			font-size: 1em
 			line-height: 1em
 		.value
-			font-weight: bold
-			line-height: 1em
+			color: mix(infoBoxTextColor, infoBoxBackgroundColor)
+			font-weight: 500
+			line-height: 1.125em
 			text-align: center
-			font-size: 2.25em
+			font-size: 1.75em
 
 	.lastUpdate
 		margin: 0 0 0.5em 0
