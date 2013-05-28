@@ -24,11 +24,14 @@ module.exports = class HomePageView extends PageView
     @config = new Config
 
     # bind events to geolocation changes and config
-    @geolocation.on 'change', (position) =>
+    @geolocation.on 'change:longitude change:latitude', (position) =>
+      if @config.get 'autoCenter'
+        mapView = @subview 'map'
+        mapView.setCenter(@geolocation)
 
     # bind event to config changes
     @config.on 'change:trackRoute', (config, value) =>
-      if value  
+      if value
         @subview 'route', new MapRouteView
           map: @subview('map').map
           model: @geolocation
@@ -52,11 +55,6 @@ module.exports = class HomePageView extends PageView
       $(window).width(),
       windowHeight - infoView.$el.outerHeight() - configView.$el.outerHeight()
     )
-
-    # recenter view if it’s enabled in the config
-    if @config.get 'autoCenter'
-      mapView = @subview 'map'
-      mapView.setCenter(@geolocation)
     @
 
   renderSubviews: ->
