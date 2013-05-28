@@ -28,7 +28,7 @@
   "scripts": {
     "start": "brunch watch --server",
     "test": "brunch test",
-    "postinstall": "brunch build --minify"
+    "postinstall": "brunch build --optimize"
   },
   "main": "./server.coffee",
   "dependencies": {
