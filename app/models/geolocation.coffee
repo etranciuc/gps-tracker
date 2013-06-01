@@ -15,11 +15,26 @@ module.exports = class Geolocation extends Model
      accuracy: false
      altitude: false
      heading: false
+     speed: false
      lastUpdate: false
 
   watchId: null
 
   pollIntervalId: null
+
+  setters:
+    accuracy: (value) ->
+      if value >= 0
+        return value
+      return false
+    heading: (value) ->
+      if value >= 0 <= 360
+        return value
+      return false
+    speed: (value) ->
+      if value && value >= 0
+        return value
+      return false
 
   getters:
     latLng: ->
@@ -66,7 +81,7 @@ module.exports = class Geolocation extends Model
         lastUpdate = new Date(position.timestamp)
         if timestampString.length is 16
           lastUpdate.setTime(position.timestamp / 1000)
-      
+
     @set 'lastUpdate', lastUpdate
     # update model with data from position.coords
     @set position.coords
