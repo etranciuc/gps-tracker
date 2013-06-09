@@ -7,7 +7,10 @@ utils = require 'lib/utils'
 # Delegate to Chaplin’s support module
 support = utils.beget Chaplin.support
 
-# _(support).extend
-  # someMethod: ->
+_(support).extend
+  isIOS: ->
+    return !!document.location.href.match /\.app\/www/
+  isAndroid: ->
+    return !!document.location.href.match /android_asset/  
 
 module.exports = support

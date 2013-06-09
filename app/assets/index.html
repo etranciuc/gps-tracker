@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>GPS-Tracker</title>
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -15,57 +15,11 @@
   <link href="images/logo/gpstracker-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png">
   <link href="images/logo/gpstracker-72x72.png" rel="apple-touch-icon" type="image/png">
   <link href="favicon.ico" rel="shortcut icon" type="image/png">
-  <link href="favicon.ico" rel="shortcut icon">
-  <script src="javascripts/vendor.js"></script>
-  <script src="javascripts/app.js"></script>
-  <script>
-
-  if (document.location.href.match(/localhost/) !== null) {
-    var GoogleMapsAPIKey = 'AIzaSyDpvGf9AM1a6kfXpXQLMdqhSfZVzXBQWtE';
-    var isIOS = false;
-  } else {
-    var GoogleMapsAPIKey = 'AIzaSyAMx4TMG4m4tdZYXd44VtgowIZ06Y7ruVs';
-    var isIOS = true;
-  }
-
-  var initialize = function() {
-    require('initialize');
-  }
-
-  function loadScript(url) {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = url;
-    document.body.appendChild(script);
-  }
-
-  var app = {
-    initialize: function() {
-        this.bindEvents();
-    },
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
-    }
-  };
-
-  window.onload = function() {
-    if (isIOS) {
-      loadScript("javascripts/cordova-2.7.0.js");
-      app.initialize();
-    }
-    loadScript("http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=" + GoogleMapsAPIKey + "&sensor=true&callback=initialize");
-  };
-
-  </script>
 </head>
 <body>
-  <div id="app">
-  </div>
+  <div id="app"></div>
+  <script src="javascripts/vendor.js"></script>
+  <script src="javascripts/app.js"></script>
+  <script>require('initialize');</script>
 </body>
 </html>
