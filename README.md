@@ -1,3 +1,5 @@
+* Master ![Master Build Status](https://circleci.com/gh/foobugs/gps-tracker/tree/master.png?circle-token=ca63b3f7271947d398dc47f8d7cb93c2b08c2195)
+
 # GPS Tracker
 
 <img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" align="right" width="320" height="444" />

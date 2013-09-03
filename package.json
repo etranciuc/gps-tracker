@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "test": "brunch test",
+    "test": "brunch build; node_modules/.bin/mocha-phantomjs public/test/test.html",
     "postinstall": "brunch build --optimize"
   },
   "main": "./server.coffee",
@@ -47,7 +47,8 @@
 
     "connect": "*",
     "express": "*",
-    "path": "*"
+    "path": "*",
+    "mocha-phantomjs": "*"
   },
   "devDependencies": {
     "chai": "1.2.0",

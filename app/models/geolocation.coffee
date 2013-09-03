@@ -48,7 +48,7 @@ module.exports = class Geolocation extends Model
       """
     else
       navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
-      @watchPosition()  
+      @watchPosition()
        
   pollCurrentPosition: =>
     if @pollIntervalId
