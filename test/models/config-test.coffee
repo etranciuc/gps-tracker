@@ -1,5 +1,5 @@
 Config = require 'models/config'
-
+console.log 'CONFIG TEST'
 describe 'Config Model', ->
   beforeEach ->
     @model = new Config

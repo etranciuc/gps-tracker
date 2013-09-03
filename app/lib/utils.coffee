@@ -1,4 +1,3 @@
-Chaplin = require 'chaplin'
 mediator = require 'mediator'
 
 # Application-specific utilities

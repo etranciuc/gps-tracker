@@ -101,5 +101,5 @@ module.exports = class Geolocation extends Model
       return "unknown"
     string = @get('longitude') + ', ' +  @get('latitude')
     if @get('accuracy')
-      string += " (" + @get('accuracy')+ ")"
+      string += " (" + @get('accuracy')+ "m)"
     return string

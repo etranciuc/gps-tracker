@@ -19,8 +19,9 @@ exports.config =
         before: [
           'vendor/scripts/console-helper.js',
           'vendor/scripts/jquery-1.8.0.js',
-          'vendor/scripts/underscore-1.3.3.js',
-          'vendor/scripts/backbone-0.9.2.js'
+          'vendor/scripts/underscore-1.5.1.js',
+          'vendor/scripts/backbone-1.0.0.js',
+          'vendor/scripts/chaplin-0.10.0.js'
         ]
 
     stylesheets:
