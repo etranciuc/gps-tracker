@@ -19,12 +19,13 @@ module.exports = class GeolocationMarkerView extends MarkerView
   render: ->
     super
     # replace icon
-    imageSize = 24
+    imageSize = 24 # width/height of the poi marker
+    imageScale = 0.5 # scale the image (retina-ready)
     image = new google.maps.MarkerImage 'images/poi.png',
       new google.maps.Size(imageSize, imageSize),
-      new google.maps.Point(0,0),
-      new google.maps.Point(imageSize / 4, imageSize / 4)
-      new google.maps.Size(imageSize / 2, imageSize / 2),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(imageSize / 2 * imageScale, imageSize / 2 * imageScale)
+      new google.maps.Size(imageSize * imageScale, imageSize * imageScale),
     @marker.setIcon(image)
     # create circle for accuracy
     options = _(@options).extend

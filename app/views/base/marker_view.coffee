@@ -1,5 +1,7 @@
 View = require 'views/base/view'
 
+# abstract view that creates and renders a marker
+# on a google maps element
 module.exports = class MarkerView extends View
 
   autoRender: yes
