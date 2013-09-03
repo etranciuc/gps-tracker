@@ -12,7 +12,8 @@ This project was build using [brunch](http://brunch.io/) as a boilerplate for a 
 
 # Demo
 
-[http://gps-tracker.herokuapp.com](http://gps-tracker.herokuapp.com)
+* [http://gps-tracker.herokuapp.com](http://gps-tracker.herokuapp.com)
+* [https://itunes.apple.com/app/id690438689](AppStore Download Super GPS Tracker)
 
 # Build & Run
 
