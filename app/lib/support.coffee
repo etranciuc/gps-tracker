@@ -11,6 +11,6 @@ _(support).extend
   isIOS: ->
     return !!document.location.href.match /\.app\/www/
   isAndroid: ->
-    return !!document.location.href.match /android_asset/  
+    return !!document.location.href.match /android_asset/
 
 module.exports = support
