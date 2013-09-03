@@ -24,7 +24,7 @@ This project was build using [brunch](http://brunch.io/) as a boilerplate for a 
 ## Installing
 
 * Download or clone repository and install dependencies using `npm install`.
-* After that you can run the static server on your computer with `brunch watch --server` or if you have [foreman](https://npmjs.org/package/foreman) installed `forman start`
+* After that you can run the static server on your computer with `brunch watch --server` or if you have [foreman](https://npmjs.org/package/foreman) installed `foreman start`
 
 ## Contact
 
