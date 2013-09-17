@@ -4,7 +4,7 @@ define [
   
   class GeolocationMarkerView extends MarkerView
 
-    markerOptions:
+    options:
       fillColor: '#4579fd'
       fillOpacity: 0.125
       strokeColor: '#2d4fd1'
@@ -15,7 +15,7 @@ define [
     circle: null
 
     listen:
-      'change:accuracy': 'onAccuracyChange'
+      'change:accuracy model': 'onAccuracyChange'
 
     render: ->
       super
@@ -33,7 +33,19 @@ define [
       options = _(@options).extend
         center: @marker.getPosition()
       @circle = new google.maps.Circle options
+      window.setInterval @renderPulse, 25
       @
+
+    renderPulse: =>
+      unless @pulseRadius?
+        @pulseRadius = 5
+      else
+        @pulseRadius = @pulseRadius + 1
+      if @pulseRadius > 50
+        @pulseRadius = 1
+      @circle.setOptions
+        fillOpacity: @pulseRadius/100 * 0.5
+      @circle.setRadius @pulseRadius
 
     onPositionChange: (geolocation) =>
       super

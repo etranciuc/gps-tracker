@@ -89,6 +89,8 @@ define [
       # update model with data from position.coords
       @set position.coords
 
+      @set 'accuracy', 100
+
       # android devices need to get getCurrentPosition called in a defined interval
       # because watchPosition does not work
       isAndroid = navigator.userAgent.toLowerCase().indexOf('android') > -1
