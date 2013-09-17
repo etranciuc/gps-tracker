@@ -61,7 +61,6 @@ module.exports = (grunt) ->
   config.mocha_phantomjs =
     all: ["build/test/index.html"]
 
-
   grunt.loadNpmTasks "grunt-contrib-coffee"
   config.coffee =
     app:
@@ -102,14 +101,13 @@ module.exports = (grunt) ->
   # -----
   grunt.registerTask "build", [
     "clean"
-    "copy:app"
-    "copy:test"
+    "copy"
     "handlebars"
     "less"
     "coffee"
   ]
   grunt.registerTask "test", [
-    "build-www"
+    "build"
     "mocha_phantomjs"
   ]
   grunt.registerTask "default", "build"

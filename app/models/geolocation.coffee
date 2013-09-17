@@ -13,13 +13,13 @@ define [
       frequency: 5000
 
     defaults:
-       longitude: null
-       latitude: null
-       accuracy: false
-       altitude: false
-       heading: false
-       speed: false
-       lastUpdate: false
+      longitude: null
+      latitude: null
+      accuracy: false
+      altitude: false
+      heading: false
+      speed: false
+      lastUpdate: false
 
     watchId: null
 
@@ -31,11 +31,11 @@ define [
           return value
         return false
       heading: (value) ->
-        if value >= 0 <= 360
+        if 0 <= value <= 360
           return value
         return false
       speed: (value) ->
-        if value && value >= 0
+        if value >= 0
           return value
         return false
 
@@ -50,8 +50,8 @@ define [
         Unable to find navigator.geolocation support in the current client
         """
       else
-        navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
-        @watchPosition()  
+        # navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
+        # @watchPosition()
          
     pollCurrentPosition: =>
       if @pollIntervalId
@@ -100,9 +100,9 @@ define [
       console.error error
 
     toString: ->
-      unless @get('longitude') and @get('latitude')
+      unless @get('longitude')? and @get('latitude')?
         return "unknown"
-      string = @get('longitude') + ', ' +  @get('latitude')
+      string = @get('longitude') + '/' +  @get('latitude')
       if @get('accuracy')
-        string += " (" + @get('accuracy')+ ")"
+        string += " (" + @get('accuracy')+ "m)"
       return string
