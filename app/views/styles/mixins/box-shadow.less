@@ -1,0 +1,6 @@
+.box-shadow(...) {
+  @props: ~`"@{arguments}".replace(/[\[\]]/g, '')`;
+  -webkit-box-shadow: @props;
+     -moz-box-shadow: @props;
+          box-shadow: @props;
+}

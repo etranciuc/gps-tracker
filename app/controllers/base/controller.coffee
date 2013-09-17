@@ -1,3 +1,6 @@
-Chaplin = require 'chaplin'
+define [
+  'chaplin'
+], (Chaplin) ->
+  'use strict'
 
-module.exports = class Controller extends Chaplin.Controller
+  class Controller extends Chaplin.Controller

@@ -1,7 +1,10 @@
-Model = require 'models/base/model'
+define [
+  'models/base/model'
+], (Model) ->
+  'use strict'
+  
+  class Config extends Model
 
-module.exports = class Config extends Model
-
-  defaults: 
-    trackRoute: false
-    autoCenter: true
+    defaults: 
+      trackRoute: false
+      autoCenter: true

@@ -1,3 +1,6 @@
-Chaplin = require 'chaplin'
+define [
+  'chaplin'
+], (Chaplin) ->
+  'use strict'
 
-module.exports = class Collection extends Chaplin.Collection
+  class Collection extends Chaplin.Collection

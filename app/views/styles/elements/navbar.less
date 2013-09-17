@@ -1,0 +1,25 @@
+@import "mixins/clearfix";
+
+.navbar {
+	background: @navBarBackground;
+	width: 100%;
+	line-height: @navBarHeight;
+}
+.navbar-inner {
+	.clearfix;
+	padding: @navBarPadding;
+}
+
+.navbar-fixed {
+	z-index: 9999;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+a.brand {
+	font-size: @baseFontSize * 2;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}

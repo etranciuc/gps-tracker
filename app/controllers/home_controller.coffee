@@ -1,9 +1,10 @@
-Controller = require 'controllers/base/controller'
-HomePageView = require 'views/home_page_view'
+define [
+  'controllers/base/controller'
+  'views/home_page_view'
+], (Controller, HomePageView) ->
+  'use strict'
 
-module.exports = class HomeController extends Controller
-  
-  historyURL: 'home'
+  class HomeController extends Controller
 
-  index: ->
-    @view = new HomePageView()
+    index: ->
+      @view = new HomePageView

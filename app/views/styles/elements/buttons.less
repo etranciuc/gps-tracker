@@ -1,0 +1,27 @@
+@import "mixins/border-radius";
+@import "mixins/box-shadow";
+
+.buttonBackground(@color, @textColor: #fff) {
+	color: @textColor;
+	background: @color;
+	.box-shadow(
+        0px 2px 1px 0px fade(@color, 20%),
+        inset 0px -2px 0px 0px darken(@color, 10)
+    );
+}
+
+.btn {
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	padding: 4px 12px;
+	display: inline-block;
+	border: none;
+	vertical-align: middle;
+  	cursor: pointer;
+	.buttonBackground(@btnBackground, @btnTextColor);
+	.border-radius(5px);
+}
+.btn-primary {
+	.btn;
+	.buttonBackground(@btnPrimaryBackground);
+}

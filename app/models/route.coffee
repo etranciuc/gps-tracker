@@ -1,6 +1,8 @@
-Collection = require 'models/base/collection'
-Geolocation = require 'models/geolocation'
+define [
+  'models/base/collection'
+  'models/geolocation'
+], (Collection, Geolocation) ->
 
-module.exports = class Route extends Collection
+  class Route extends Collection
 
-  model: Geolocation
+    model: Geolocation

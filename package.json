@@ -1,6 +1,7 @@
 {
   "name": "gps-tracker",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "homepage": "http://gps-tracker.herokuapp.com",
   "author": {
     "name": "foobugs",
     "email": "mail@foobugs.com?subject=gps-tracker"
@@ -26,32 +27,23 @@
     "npm": ">=1.1.x"
   },
   "scripts": {
-    "start": "brunch watch --server",
-    "test": "brunch test",
-    "postinstall": "brunch build --optimize"
+    "build": "grunt build",
+    "test": "grunt test"
   },
   "main": "./server.coffee",
   "dependencies": {
-    "statik": ">= 1.1.0", 
-    "brunch": ">= 1.5",
-    "coffee-script": "*",
-    "javascript-brunch": ">= 1.0 < 1.5",
-    "coffee-script-brunch": ">= 1.0 < 1.5",
-    "css-brunch": ">= 1.0 < 1.5",
-    "stylus-brunch": ">= 1.0 < 1.5",
-
-    "handlebars-brunch": ">= 1.0 < 1.5",
-
-    "uglify-js-brunch": ">= 1.0 < 1.5",
-    "clean-css-brunch": ">= 1.0 < 1.5",
-
-    "connect": "*",
-    "express": "*",
-    "path": "*"
+    "grunt": "0.4.1",
+    "grunt-cli": "0.1.9",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-contrib-coffee": "0.7.0",
+    "grunt-contrib-copy": "0.4.1",
+    "grunt-contrib-handlebars": "0.5.10",
+    "grunt-contrib-less": "0.7.0",
+    "grunt-contrib-watch": "0.5.3"
   },
   "devDependencies": {
-    "chai": "1.2.0",
-    "sinon": "1.4.2",
-    "sinon-chai": "2.1.2"
+    "phantomjs": "1.9.1-8",
+    "mocha-phantomjs": "3.1.2",
+    "grunt-mocha-phantomjs": "0.3.0"
   }
 }

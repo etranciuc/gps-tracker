@@ -1,0 +1,54 @@
+@import "mixins/border-radius";
+
+// info display
+#info {
+	width: 100%;
+	display: table;
+}
+#info {
+	background: @infoBackgroundColor;
+	color: @infoTextColor;
+
+	.error {
+		border: none;
+		color: mix(@infoTextColor, white);
+		background-color: mix(@infoBackgroundColor, red);
+		text-align: center;
+		line-height: 2em;
+		margin-bottom: 0.5em;
+	}
+	.property {
+		float: left;
+		width: 45%;
+		margin: 0 2% 2% 2%;
+		display: inline-block;
+		
+		.border-radius(5px);
+		border: 1px solid @infoBoxBorderColor;
+		background: @infoBoxBackgroundColor;
+		color: @infoBoxTextColor;
+		.label {
+			padding-top: 0.125em;
+			text-align: center;
+			font-size: 1em;
+			line-height: 1em;
+		}
+		.value {
+			color: mix(@infoBoxTextColor, @infoBoxBackgroundColor);
+			font-weight: 500;
+			line-height: 1.125em;
+			text-align: center;
+			font-size: 1.75em;
+		}
+	}
+	.lastUpdate {
+		margin: 0 0 0.5em 0;
+		border: none;
+		float: none;
+		width: 96%;
+		.value {
+			font-weight: none;
+			font-size: 0.75em;
+		}
+	}
+}

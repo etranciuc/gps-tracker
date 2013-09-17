@@ -1,1 +1,1 @@
-web: brunch watch --server
+web: grunt server

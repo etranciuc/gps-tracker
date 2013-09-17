@@ -1,0 +1,30 @@
+@import "variables";
+
+// RESET
+body, html, ul, ol, li, h1, h2, fieldset, form {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+// phonegap / web-app optimizations
+body, html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased; // optimize font rendering
+}
+
+body {
+	font-weight: 300;
+	font-family: "Roboto";
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+}
+.pull-right {
+	float: right;
+}
+
+@import "elements/buttons";
+@import "elements/navbar";
+@import "elements/info";
+@import "elements/map";

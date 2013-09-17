@@ -1,28 +1,33 @@
-View = require 'views/base/view'
-template = require 'views/templates/config'
+define [
+  'views/base/view'
+  'views/templates/config'
+], (View, template) ->
+  'use strict'
 
-module.exports = class ConfigView extends View
+  class ConfigView extends View
 
-  autoRender: yes
-  template: template
-  container: '#app'
+    autoRender: yes
+    template: template
+    container: '#app'
 
-  className: 'navbar navbar-fixed'
+    className: 'navbar navbar-fixed'
 
-  id: "config"
+    id: "config"
 
-  initialize: ->
-    super
-    @modelBind 'change', @onModelChange
-    @delegate 'click', '.btn-track-route', =>
-      @model.set 'trackRoute', !@model.get 'trackRoute';
-    @delegate 'click', '.btn-auto-center', =>
-      @model.set 'autoCenter', !@model.get 'autoCenter';
+    listen: 
+      'change model': 'onModelChange'
 
-  onModelChange: =>
-    @$el.find('.btn-track-route').toggleClass 'btn-active', @model.get 'trackRoute'
-    @$el.find('.btn-auto-center').toggleClass 'btn-active', @model.get 'autoCenter'
+    initialize: ->
+      super
+      @delegate 'click', '.btn-track-route', =>
+        @model.set 'trackRoute', !@model.get 'trackRoute';
+      @delegate 'click', '.btn-auto-center', =>
+        @model.set 'autoCenter', !@model.get 'autoCenter';
 
-  render: =>
-    super
-    @onModelChange()
+    onModelChange: =>
+      @$el.find('.btn-track-route').toggleClass 'btn-active', @model.get 'trackRoute'
+      @$el.find('.btn-auto-center').toggleClass 'btn-active', @model.get 'autoCenter'
+
+    render: =>
+      super
+      @onModelChange()

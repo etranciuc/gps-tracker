@@ -1,25 +1,26 @@
-mediator = require 'mediator'
-View = require 'views/base/view'
+define [
+  'views/base/view'
+], (View) ->
+  'use strict'
 
-module.exports = class PageView extends View
-  
-  autoRender: yes
+  class PageView extends View
+    
+    autoRender: yes
+    container: '#app'
 
-  container: '#app'
+    initialize: ->
+      super
+      if @model or @collection
+        rendered = no
+        @modelBind 'change', =>
+          @render() unless rendered
+          rendered = yes
 
-  initialize: ->
-    super
-    if @model or @collection
-      rendered = no
-      @modelBind 'change', =>
-        @render() unless rendered
-        rendered = yes
+    renderSubviews: ->
+      return
 
-  renderSubviews: ->
-    return
-
-  render: ->
-    super
-    unless @renderedSubviews
-      @renderSubviews()
-      @renderedSubviews = yes
+    render: ->
+      super
+      unless @renderedSubviews
+        @renderSubviews()
+        @renderedSubviews = yes
