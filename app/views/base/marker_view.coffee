@@ -10,16 +10,16 @@ define [
     marker: null
 
     listen:
-      'change:longitude change:latitude': 'onPositionChange'
+      'change:longitude model': 'onPositionChange'
+      'change:latitude model': 'onPositionChange'
 
     render: ->
-      options = _(@options).defaults
+      options = 
         map: @options.map
-        position: @model.get 'latLng'
       @marker = new google.maps.Marker options
-       # click event handler
+      # click event handler
       google.maps.event.addListener @marker, 'click', @onClick
-      return @$el
+      super
 
     onClick: (event) =>
       @trigger 'click', @, event

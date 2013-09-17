@@ -4,7 +4,7 @@ define [
   
   class GeolocationMarkerView extends MarkerView
 
-    options:
+    markerOptions:
       fillColor: '#4579fd'
       fillOpacity: 0.125
       strokeColor: '#2d4fd1'
@@ -19,6 +19,7 @@ define [
 
     render: ->
       super
+      
       # replace icon
       imageSize = 24
       image = new google.maps.MarkerImage 'images/poi.png',
@@ -26,10 +27,10 @@ define [
         new google.maps.Point(0,0),
         new google.maps.Point(imageSize / 4, imageSize / 4)
         new google.maps.Size(imageSize / 2, imageSize / 2),
-      @marker.setIcon(image)
+      @marker.setIcon image
+
       # create circle for accuracy
       options = _(@options).extend
-        map: @options.map
         center: @marker.getPosition()
       @circle = new google.maps.Circle options
       @

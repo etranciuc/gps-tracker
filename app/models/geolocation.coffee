@@ -50,8 +50,8 @@ define [
         Unable to find navigator.geolocation support in the current client
         """
       else
-        # navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
-        # @watchPosition()
+        navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
+        @watchPosition()
          
     pollCurrentPosition: =>
       if @pollIntervalId
