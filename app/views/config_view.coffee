@@ -4,6 +4,7 @@ define [
 ], (View, template) ->
   'use strict'
 
+  # TODO Think about renaming this view to "navBar"
   class ConfigView extends View
 
     autoRender: yes
@@ -11,8 +12,6 @@ define [
     container: '#app'
 
     className: 'navbar navbar-fixed'
-
-    id: "config"
 
     listen: 
       'change model': 'onModelChange'

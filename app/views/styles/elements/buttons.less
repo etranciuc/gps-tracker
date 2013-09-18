@@ -1,18 +1,33 @@
 @import "mixins/border-radius";
 @import "mixins/box-shadow";
 
+@btnDepth: 2px;
+
 .buttonBackground(@color, @textColor: #fff) {
 	color: @textColor;
 	background: @color;
 	.box-shadow(
-		0px 2px 1px 0px fade(@color, 20%),
-		inset 0px -2px 0px 0px darken(@color, 10)
+		0px @btnDepth 1px 0px fade(@color, 20%),
+		inset 0px -@btnDepth 0px 0px darken(@color, 10)
 	);
+
+	// active state
+	@activeBackground: lighten(@color, 10);
+	@activeTextColor: lighten(@textColor, 10);
+	&-active, &:active, &:hover {
+		background: @activeBackground;
+		color: @activeTextColor;
+	}
+	&:active, &:hover {
+		.box-shadow(none);
+		position: relative;
+		top: @btnDepth;
+	}
 }
 
 .btn {
 	font-size: @baseFontSize;
-	line-height: @baseLineHeight;
+	line-height: @baseLineHeight * 1.5;
 	padding: 4px 12px;
 	display: inline-block;
 	border: none;
