@@ -14,8 +14,7 @@ define [
 
     circle: null
 
-    listen:
-      'change:accuracy model': 'onAccuracyChange'
+    renderPulseInterval: null
 
     render: ->
       super
@@ -33,34 +32,31 @@ define [
       options = _(@options).extend
         center: @marker.getPosition()
       @circle = new google.maps.Circle options
-      window.setInterval @renderPulse, 25
+
+      # create interval for pulsing radius
+      @renderPulseInterval = window.setInterval @renderPulse, 25
       @
 
-    renderPulse: =>
-      unless @pulseRadius?
-        @pulseRadius = 5
-      else
-        @pulseRadius = @pulseRadius + 1
-      if @pulseRadius > 50
-        @pulseRadius = 1
-      @circle.setOptions
-        fillOpacity: @pulseRadius/100 * 0.5
-      @circle.setRadius @pulseRadius
+    dispose: =>
+      super
+      window.clearInterval @renderPulseInterval
 
     onPositionChange: (geolocation) =>
       super
       @circle.setCenter @marker.getPosition()
       @
 
-    onAccuracyChange: (geolocation) =>
-      accuracy = geolocation.get 'accuracy'
-      # only draw radius of accuracy if it’s beyond 5m
-      radius =
-        if accuracy is false
-          50
-        else if accuracy > 5
-          accuracy
-        else
-          0
-      @circle.setRadius radius
-      @
+    renderPulse: =>
+      unless @model.get 'accuracy'
+        return
+      # calculate current state of pulse radius
+      unless @pulseRadius?
+        @pulseRadius = @model.get('accuracy')
+      else
+        @pulseRadius = @pulseRadius + 1
+
+      # draw radius should not extend current accuracy
+      if @pulseRadius > @model.get('accuracy')
+        @pulseRadius = 1
+
+      @circle.setRadius @pulseRadius
