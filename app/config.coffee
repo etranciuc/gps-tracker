@@ -3,7 +3,7 @@ define ->
 
   config =
     app: 
-      version: '2.2.0'
+      version: '2.1.0'
       name: 'Super GPS-Tracker'
     google:
       maps:
