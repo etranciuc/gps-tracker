@@ -5,4 +5,3 @@ define ->
   # `match` is match method of the Router
   (match) ->
     match '', 'home#index', name: 'home'
-    match 'test', 'home#index', name: 'home'
