@@ -23,7 +23,6 @@ define [
       @
 
     setCenter: (getPosition) ->
-      console.info 'MapView.position', arguments
       @map.setCenter getPosition.get('latLng')
       @
 
