@@ -11,7 +11,8 @@ require.config
     handlebars: 'vendor/handlebars.1.0.0'
     underscore: 'vendor/underscore.1.5.2.min'
     zepto: 'vendor/zepto.1.0.min'
-    phonegap: '../../phonegap'
+    cordovaAndroid: 'vendor/cordova-2.7.0-android'
+    cordovaIOS: 'vendor/cordova-2.7.0-ios'
   # auto-loading dependencies should be defined here
   shim:
     application:
@@ -43,18 +44,22 @@ require.config
   urlArgs: 'bust=' + (new Date()).getTime()
 
 console.log 'STEP1'
-require ['config', 'lib/support'], (Config, Support) ->
 
+require ['config', 'lib/support'], (Config, support) ->
   console.log 'STEP2'
   window.googleMapsInitialize = ->
     libs = [
       "application"
       "routes"
     ]
-    if Support.isMobile()
-      libs.push 'phonegap'
+    console.log 'STEP3'
+    if support.isIOS()
+      libs.push 'cordovaIOS'
+    else if support.isAndroid()
+      libs.push 'cordovaAndroid'
+      
     require libs, (Application, routes, Cordova) ->
-      console.log 'STEP3'
+      console.log 'STEP4'
       app = new Application
         routes: routes
         pushState: false
