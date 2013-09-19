@@ -29,6 +29,21 @@ module.exports = (grunt) ->
         { cwd: "test/vendor/styles/", dest: "#{targetDir}/test/css", src: "**", expand: yes }
       ]
 
+    res:
+      files: [
+        # ios icons
+        {src: "res/icon/ios/icon-57.png",    dest: "platforms/ios/GPSTracker/Resources/icons/icon.png"}
+        {src: "res/icon/ios/icon-57-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon@2x.png"}
+        {src: "res/icon/ios/icon-72.png",    dest: "platforms/ios/GPSTracker/Resources/icons/icon-72.png"}
+        {src: "res/icon/ios/icon-72-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-72@2x.png"}
+        # android icons
+        {src: "res/icon/android/icon-96-xhdpi.png", dest: "platforms/android/res/drawable/icon.png"}
+        {src: "res/icon/android/icon-72-hdpi.png",  dest: "platforms/android/res/drawable-hdpi/icon.png"}
+        {src: "res/icon/android/icon-48-mdpi.png", dest: "platforms/android/res/drawable-mdpi/icon.png"}
+        {src: "res/icon/android/icon-36-ldpi.png",  dest: "platforms/android/res/drawable-ldpi/icon.png"}
+        {src: "res/icon/android/icon-96-xhdpi.png", dest: "platforms/android/res/drawable-xhdpi/icon.png"}
+      ]
+
   grunt.loadNpmTasks "grunt-contrib-handlebars"
   config.handlebars = 
     compile:
