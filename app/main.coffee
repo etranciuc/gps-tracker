@@ -11,8 +11,7 @@ require.config
     handlebars: 'vendor/handlebars.1.0.0'
     underscore: 'vendor/underscore.1.5.2.min'
     zepto: 'vendor/zepto.1.0.min'
-    cordovaIOS: 'vendor/cordova-2.7.0-ios'
-    cordovaAndroid: 'vendor/cordova-2.7.0-android.js'
+    phonegap: '../../phonegap'
   # auto-loading dependencies should be defined here
   shim:
     application:
@@ -51,11 +50,9 @@ require ['config', 'lib/support'], (Config, Support) ->
       "application"
       "routes"
     ]
-    if Support.isIOS()
-      libs.push 'cordovaIOS'
-    else if Support.isAndroid()
-      libs.push 'cordovaAndroid'
-    require libs, (Application, routes, CordovaLib) ->
+    if Support.isMobile()
+      libs.push 'phonegap'
+    require libs, (Application, routes, Cordova) ->
       app = new Application
         routes: routes
         pushState: false

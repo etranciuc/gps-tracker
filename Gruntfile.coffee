@@ -2,7 +2,7 @@
 
 module.exports = (grunt) ->
 
-  targetDir = 'build'
+  targetDir = 'www'
 
   # Config
   # ------
