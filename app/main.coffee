@@ -42,9 +42,10 @@ require.config
   # configured correctly. 
   urlArgs: 'bust=' + (new Date()).getTime()
 
-
+console.log 'STEP1'
 require ['config', 'lib/support'], (Config, Support) ->
 
+  console.log 'STEP2'
   window.googleMapsInitialize = ->
     libs = [
       "application"
@@ -53,6 +54,7 @@ require ['config', 'lib/support'], (Config, Support) ->
     if Support.isMobile()
       libs.push 'phonegap'
     require libs, (Application, routes, Cordova) ->
+      console.log 'STEP3'
       app = new Application
         routes: routes
         pushState: false

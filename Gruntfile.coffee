@@ -34,15 +34,15 @@ module.exports = (grunt) ->
     res:
       files: [
         # ios icons
-        {src: "res/icon/ios/icon-57.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon.png"}
-        {src: "res/icon/ios/icon-57-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon@2x.png"}
-        {src: "res/icon/ios/icon-72.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-72.png"}
-        {src: "res/icon/ios/icon-72-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-72@2x.png"}
-        {src: "res/icon/ios/icon-120.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-60@2x.png"}
+        {src: "res/icon/ios/icon-57.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon.png"}
+        {src: "res/icon/ios/icon-57-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon@2x.png"}
+        {src: "res/icon/ios/icon-72.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-72.png"}
+        {src: "res/icon/ios/icon-72-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-72@2x.png"}
+        {src: "res/icon/ios/icon-120.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-60@2x.png"}
         # ios splash screens
-        {src: "res/splash/ios/screen-iphone-portrait.png", dest: "platforms/ios/GPSTracker/Resources/splash/Default~iphone.png"}
-        {src: "res/splash/ios/screen-iphone-portrait-2x.png", dest: "platforms/ios/GPSTracker/Resources/splash/Default@2x~iphone.png"}
-        {src: "res/splash/ios/screen-iphone-portrait-568h-2x.png", dest: "platforms/ios/GPSTracker/Resources/splash/Default-568h@2x~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default@2x~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait-568h-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default-568h@2x~iphone.png"}
         # android icons
         {src: "res/icon/android/icon-96-xhdpi.png", dest: "platforms/android/res/drawable/icon.png"}
         {src: "res/icon/android/icon-72-hdpi.png",  dest: "platforms/android/res/drawable-hdpi/icon.png"}
@@ -57,7 +57,7 @@ module.exports = (grunt) ->
       ]
     android:
       files: [
-        { cwd: targetDir, dest: "platforms/android/assets/", src: "**", expand: yes }
+        { cwd: targetDir, dest: "platforms/android/assets/www", src: "**", expand: yes }
       ]
 
   grunt.loadNpmTasks "grunt-contrib-handlebars"

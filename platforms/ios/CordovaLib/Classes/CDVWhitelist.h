@@ -28,7 +28,6 @@ extern NSString* const kCDVDefaultWhitelistRejectionString;
 - (id)initWithArray:(NSArray*)array;
 - (BOOL)schemeIsAllowed:(NSString*)scheme;
 - (BOOL)URLIsAllowed:(NSURL*)url;
-- (BOOL)URLIsAllowed:(NSURL*)url logFailure:(BOOL)logFailure;
 - (NSString*)errorStringForURL:(NSURL*)url;
 
 @end

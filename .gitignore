@@ -1,3 +1,12 @@
 .cordova
 node_modules
 www
+
+# ios ignores
+platforms/ios/www
+
+# android ignores
+platforms/android/assets/www
+platforms/android/out
+platforms/android/res/drawable-**
+platforms/android/.idea
