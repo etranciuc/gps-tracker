@@ -2,6 +2,8 @@
 
 module.exports = (grunt) ->
 
+  targetDir = 'build'
+
   # Config
   # ------
   config = {}
@@ -9,7 +11,7 @@ module.exports = (grunt) ->
   
   grunt.loadNpmTasks "grunt-contrib-clean"
   config.clean =
-    dist: [ "build" ]
+    dist: [ targetDir ]
 
   grunt.loadNpmTasks "grunt-contrib-copy"
   config.copy =
@@ -17,14 +19,14 @@ module.exports = (grunt) ->
       excludeEmpty: true
     app:
       files: [
-        { cwd: "app/assets/", dest: "build/", src: "**", expand: yes }
-        { cwd: "vendor/scripts/", dest: "build/js/source/vendor", src: "**", expand: yes }
+        { cwd: "app/assets/", dest: targetDir, src: "**", expand: yes }
+        { cwd: "vendor/scripts/", dest: "#{targetDir}/js/source/vendor", src: "**", expand: yes }
       ]
     test:
       files: [
-        { cwd: "test/assets/", dest: "build/test/", src: "**", expand: yes }
-        { cwd: "test/vendor/scripts/", dest: "build/test/js/vendor", src: "**", expand: yes }
-        { cwd: "test/vendor/styles/", dest: "build/test/css", src: "**", expand: yes }
+        { cwd: "test/assets/", dest: "#{targetDir}/test/", src: "**", expand: yes }
+        { cwd: "test/vendor/scripts/", dest: "#{targetDir}/test/js/vendor", src: "**", expand: yes }
+        { cwd: "test/vendor/styles/", dest: "#{targetDir}/test/css", src: "**", expand: yes }
       ]
 
   grunt.loadNpmTasks "grunt-contrib-handlebars"
@@ -36,7 +38,7 @@ module.exports = (grunt) ->
       files: [
         {
           cwd: "app/views/templates/"
-          dest: "build/js/source/views/templates/"
+          dest: "#{targetDir}/js/source/views/templates/"
           src: "**/*.hbs"
           expand: yes
           ext: ".js"
@@ -46,20 +48,20 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-less"
   config.less =
     compile:
-      files:
-        'build/css/main.css': 'app/views/styles/main.less'
+      files: {} # defined later
       options:
         yuicompress: false
         compress: false
         dumpLineNumbers: true
         paths: [
-          'src/vendor/styles'
-          'app/views/styles'
+          "src/vendor/styles"
+          "app/views/styles"
         ]
+  config.less.compile.files["#{targetDir}/css/main.css"] = "app/views/styles/main.less"
 
   grunt.loadNpmTasks "grunt-mocha-phantomjs"
   config.mocha_phantomjs =
-    all: ["build/test/index.html"]
+    all: ["#{targetDir}/test/index.html"]
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
   config.coffee =
@@ -68,13 +70,13 @@ module.exports = (grunt) ->
       cwd: "app/"
       src: "**/**.coffee"
       ext: ".js"
-      dest: "build/js/source"
+      dest: "#{targetDir}/js/source"
     test:
       expand: yes
       cwd: "test/"
       src: "**/**.coffee"
       ext: ".js"
-      dest: "build/test/js"
+      dest: "#{targetDir}/test/js"
 
   grunt.loadNpmTasks "grunt-contrib-watch"
   config.watch =
