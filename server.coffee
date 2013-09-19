@@ -14,8 +14,8 @@ else
 unless webroot
   webroot = './www/'
 
-connect()
-  .use(connect.static(webroot))
+server = connect()
   .use(connect.logger('dev'))
+  .use(connect.static(webroot))
   .listen(port)
 console.log "server started on port: #{port}, path: '#{webroot}'"
