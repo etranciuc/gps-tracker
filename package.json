@@ -43,7 +43,6 @@
     "grunt-contrib-watch": "0.5.3"
   },
   "devDependencies": {
-    "phonegap": "3.*",
     "phantomjs": "1.9.1-8",
     "mocha-phantomjs": "3.1.2",
     "grunt-mocha-phantomjs": "0.3.0"
