@@ -1,0 +1,9 @@
+bin
+res/drawable
+res/drawable-hdpi
+res/drawable-ldpi
+res/drawable-mdpi
+res/drawable-xhdpi
+gen
+out
+assets/www
