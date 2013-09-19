@@ -11,6 +11,7 @@ define [
 
     options:
       zoom: 17
+      streetViewControl: no
 
     map: null
 
