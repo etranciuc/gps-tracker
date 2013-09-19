@@ -36,6 +36,7 @@ module.exports = (grunt) ->
         {src: "res/icon/ios/icon-57-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon@2x.png"}
         {src: "res/icon/ios/icon-72.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-72.png"}
         {src: "res/icon/ios/icon-72-2x.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-72@2x.png"}
+        {src: "res/icon/ios/icon-120.png", dest: "platforms/ios/GPSTracker/Resources/icons/icon-120.png"}
         # ios splash screens
         {src: "res/splash/ios/screen-iphone-portrait.png", dest: "platforms/ios/GPSTracker/Resources/splash/Default~iphone.png"}
         {src: "res/splash/ios/screen-iphone-portrait-2x.png", dest: "platforms/ios/GPSTracker/Resources/splash/Default@2x~iphone.png"}
