@@ -12,7 +12,7 @@ else
   port = 8080
 
 unless webroot
-  webroot = './build/'
+  webroot = './www/'
 
 connect()
   .use(connect.static(webroot))

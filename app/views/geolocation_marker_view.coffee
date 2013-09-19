@@ -18,8 +18,8 @@ define [
       super
       
       # replace icon
-      imageSize = 24
-      image = new google.maps.MarkerImage 'images/poi.png',
+      imageSize = 32
+      image = new google.maps.MarkerImage 'res/poi.png',
         new google.maps.Size(imageSize, imageSize),
         new google.maps.Point(0,0),
         new google.maps.Point(imageSize / 4, imageSize / 4)
