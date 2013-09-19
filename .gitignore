@@ -4,9 +4,11 @@ www
 
 # ios ignores
 platforms/ios/www
+platforms/ios/GPS-Tracker/Resources/icons
+platforms/ios/GPS-Tracker/Resources/splash
 
 # android ignores
 platforms/android/assets/www
 platforms/android/out
-platforms/android/res/drawable-**
+platforms/android/res/drawable**
 platforms/android/.idea
