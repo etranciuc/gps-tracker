@@ -1,6 +1,5 @@
 Demo:
 ===============================================================================
-<img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" align="right" width="320" height="480" />
 
 * [Web-App on Heroku](http://gps-tracker.herokuapp.com)
 * [Apple App-Store](https://itunes.apple.com/us/app/super-gps-tracker/id690438689?mt=8)
