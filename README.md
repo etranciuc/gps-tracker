@@ -1,37 +1,45 @@
-# GPS Tracker
+Demo:
+===============================================================================
+<img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" align="right" width="320" height="480" />
 
-<img src="https://raw.github.com/foobugs/gps-tracker/master/screenshot.png" border="0" align="right" width="320" height="444" />
+* [Web-App on Heroku](http://gps-tracker.herokuapp.com)
+* [Apple App-Store](https://itunes.apple.com/us/app/super-gps-tracker/id690438689?mt=8)
+* [Google Play Store](https://play.google.com/store/apps/details?id=com.foobugs.gpstracker)
+
+Description
+===============================================================================
 
 This project uses the [geolocation API](dev.w3.org/geo/api/spec-source.html) (if provided by the web-client) to show a map and information about the client’s real location.
 
 It also is an experiment to see which clients (mobile devices) provide which informations and update intervals when using `watchPosition`.
 
-This project was build using [brunch](http://brunch.io/) as a boilerplate for a [backbone](backbonejs.org)/[chaplin](http://chaplinjs.org/) application. It’s hosted on heroku which provides a nice environment for such litte projects.
+This project is written in [coffeescript](http://coffeescript.org/) and uses [backbone](backbonejs.org), [chaplin](http://chaplinjs.org/) as solid framework and is build with [grunt](http://gruntjs.com/).
 
-# Demo
+Additionally the project is automatically tested using [CirlceCI](circleci.com).
 
-[http://gps-tracker.herokuapp.com](http://gps-tracker.herokuapp.com)
 
-# Build & Run
+Build
+===============================================================================
 
-## Requirements
+	npm install
 
-* NPM
-* Node
+## Web-App
 
-## Installing
-
-* Download or clone repository and install dependencies using `npm install`.
-* Create first Build with `grunt build`
-* Open `index.html`
-
-## Static WebServer
-
+	grunt build
 	coffee server.coffee
+	// open localhost:8080
 
-## Contact
+## iOS
 
-If you have questions or anything else …
+The project includes a complete XCode5 Project which can be used to build the iOS App.
+
+## Android
+
+The project includes a complete Android Studio Project which can be used to build the Android App.
+
+Contact
+===============================================================================
+If you have questions or any other inquiry concerning the Super GPS Tracker app use one of the following:
 
 * Twitter: [@foobugs](https://twitter.com/foobugs)
 * E-Mail: [mail@foobugs.com](mail:mail@foobugs.com?subject=gps-tracker)
