@@ -7,9 +7,7 @@ define [
     options:
       fillColor: '#4579fd'
       fillOpacity: 0.125
-      strokeColor: '#2d4fd1'
-      strokeOpacity: 1
-      strokeWeight: 1
+      strokeWeight: 0
       clickable: false
 
     circle: null
