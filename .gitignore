@@ -6,6 +6,7 @@ www
 platforms/ios/www
 platforms/ios/GPS-Tracker/Resources/icons
 platforms/ios/GPS-Tracker/Resources/splash
+platforms/ios/GPS-Tracker.xcodeproj/project.xcworkspace/xcuserdata/*
 
 # android ignores
 platforms/android/assets/www
