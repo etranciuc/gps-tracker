@@ -1,5 +1,6 @@
 @import "mixins/clearfix";
 
+// @TODO rename to ".navbar" to "#NavigationBar"
 .navbar {
 	background: @navBarBackground;
 	width: 100%;
@@ -22,4 +23,10 @@ a.brand {
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
+}
+
+body.iOS7 {
+	.navbar {
+		padding-top: 20px;
+	}
 }
