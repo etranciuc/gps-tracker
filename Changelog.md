@@ -3,9 +3,8 @@ Changelog
 
 # 1.1.0
 
-* Pulsing Radius around POI Marker
-* Changed POI Icon to iOS7
-* hiDPI version
+* Optimizations for iOS 7
+* New Icon and pulse radius around POI-Marker
 
 # 1.0.0
 
