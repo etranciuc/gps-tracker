@@ -6,6 +6,8 @@
 .buttonBackground(@color, @textColor: #fff) {
 	color: @textColor;
 	background: @color;
+
+	// slight 3d effect button standing out
 	.box-shadow(
 		0px @btnDepth 1px 0px fade(@color, 20%),
 		inset 0px -@btnDepth 0px 0px darken(@color, 10)
@@ -20,8 +22,6 @@
 	}
 	&:active, &:hover {
 		.box-shadow(none);
-		position: relative;
-		top: @btnDepth;
 	}
 }
 
@@ -29,9 +29,9 @@
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight * 1.5;
 	padding: 4px 12px;
+	margin: 0;
 	display: inline-block;
 	border: none;
-	vertical-align: middle;
 	cursor: pointer;
 	.buttonBackground(@btnBackground, @btnTextColor);
 	.border-radius(5px);

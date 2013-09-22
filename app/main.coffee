@@ -43,23 +43,18 @@ require.config
   # configured correctly. 
   urlArgs: 'bust=' + (new Date()).getTime()
 
-console.log 'STEP1'
-
 require ['config', 'lib/support'], (Config, support) ->
-  console.log 'STEP2'
   window.googleMapsInitialize = ->
     libs = [
       "application"
       "routes"
     ]
-    console.log 'STEP3'
     if support.isIOS()
       libs.push 'cordovaIOS'
     else if support.isAndroid()
       libs.push 'cordovaAndroid'
       
     require libs, (Application, routes, Cordova) ->
-      console.log 'STEP4'
       app = new Application
         routes: routes
         pushState: false

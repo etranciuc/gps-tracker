@@ -11,7 +11,7 @@ define [
     template: template
     container: '#app'
 
-    className: 'navbar navbar-fixed'
+    id: 'NavigationBar'
 
     listen: 
       'change model': 'onModelChange'

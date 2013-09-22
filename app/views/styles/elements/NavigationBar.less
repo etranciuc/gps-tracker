@@ -1,0 +1,35 @@
+@import "mixins/clearfix";
+
+// @TODO rename to ".navbar" to "#NavigationBar"
+#NavigationBar {
+	background: @navBarBackground;
+	line-height: @navBarHeight;
+	.inner {
+		.clearfix;
+		padding: 0 0 0 @navBarPadding;
+	}
+
+	// fixed top positioning
+	width: 100%;
+	z-index: 9999;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	h1.brand {
+		font-weight: inherit;
+		float: left;
+		line-height: @navBarHeight;
+		font-size: @baseFontSize * 2;
+		color: #fff;
+		text-transform: uppercase;
+		text-decoration: none;
+		width: 60%;
+		text-overflow:ellipsis;
+	}
+
+	// iOS7
+	body.iOS7 & {
+		padding-top: 20px;
+	}
+}

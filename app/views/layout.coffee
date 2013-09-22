@@ -1,6 +1,7 @@
 define [
   'chaplin'
-], (Chaplin) ->
+  'lib/support'
+], (Chaplin, Support) ->
   'use strict'
   
   class Layout extends Chaplin.Layout
@@ -9,7 +10,7 @@ define [
       super
 
       # detect iOS7 system and add class to body tag to add more styles
-      if Support.isIOS7()
+      if Support.isIOS() && Support.isIOS7()
         $('body').addClass('iOS7')
 
       # push application:resize event everytime the window size changes
