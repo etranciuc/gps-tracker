@@ -43,6 +43,7 @@ define [
     onPositionChange: (geolocation) =>
       super
       @circle.setCenter @marker.getPosition()
+      @renderPuls()
       @
 
     setRadius: (radius) =>
@@ -57,12 +58,13 @@ define [
       delay = duration / toValue
       radius = @step / 100 * toValue
 
-      if @step > 100
-        @step = 0
-      else
-        @step++;
-
       @setRadius radius
 
       # repeat till the end of time or @dispose is called
       @renderPulseInterval = window.setTimeout @renderPulse, delay
+
+      if @step > 100
+        @step = 0
+        window.clearInterval @renderPulse
+      else
+        @step++;
