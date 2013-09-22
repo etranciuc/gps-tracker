@@ -3,6 +3,10 @@
 module.exports = (grunt) ->
 
   targetDir = 'www'
+  iosRoot = 'platforms/ios/GPSTracker'
+  iosWWW = 'platforms/ios/www'
+  androidRoot = 'platforms/android/'
+  androidWWW = 'platforms/android/assets/www'
 
   # Config
   # ------
@@ -12,8 +16,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-clean"
   config.clean =
     dist: [ targetDir ]
-    ios: [ "platform/ios/www"]
-    android: [ "platform/android/assets/www"]
+    ios: [ iosWWW ]
+    android: [ androidWWW ]
 
   grunt.loadNpmTasks "grunt-contrib-copy"
   config.copy =
@@ -34,30 +38,30 @@ module.exports = (grunt) ->
     res:
       files: [
         # ios icons
-        {src: "res/icon/ios/icon-57.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon.png"}
-        {src: "res/icon/ios/icon-57-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon@2x.png"}
-        {src: "res/icon/ios/icon-72.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-72.png"}
-        {src: "res/icon/ios/icon-72-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-72@2x.png"}
-        {src: "res/icon/ios/icon-120.png", dest: "platforms/ios/GPS-Tracker/Resources/icons/icon-60@2x.png"}
+        {src: "res/icon/ios/icon-57.png", dest: "#{iosRoot}/Resources/icons/icon.png"}
+        {src: "res/icon/ios/icon-57-2x.png", dest: "#{iosRoot}/Resources/icons/icon@2x.png"}
+        {src: "res/icon/ios/icon-72.png", dest: "#{iosRoot}/Resources/icons/icon-72.png"}
+        {src: "res/icon/ios/icon-72-2x.png", dest: "#{iosRoot}/Resources/icons/icon-72@2x.png"}
+        {src: "res/icon/ios/icon-120.png", dest: "#{iosRoot}/Resources/icons/icon-60@2x.png"}
         # ios splash screens
-        {src: "res/splash/ios/screen-iphone-portrait.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default~iphone.png"}
-        {src: "res/splash/ios/screen-iphone-portrait-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default@2x~iphone.png"}
-        {src: "res/splash/ios/screen-iphone-portrait-568h-2x.png", dest: "platforms/ios/GPS-Tracker/Resources/splash/Default-568h@2x~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait.png", dest: "#{iosRoot}/Resources/splash/Default~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait-2x.png", dest: "#{iosRoot}/Resources/splash/Default@2x~iphone.png"}
+        {src: "res/splash/ios/screen-iphone-portrait-568h-2x.png", dest: "#{iosRoot}/Resources/splash/Default-568h@2x~iphone.png"}
         # android icons
-        {src: "res/icon/android/icon-96-xhdpi.png", dest: "platforms/android/res/drawable/icon.png"}
-        {src: "res/icon/android/icon-72-hdpi.png",  dest: "platforms/android/res/drawable-hdpi/icon.png"}
-        {src: "res/icon/android/icon-48-mdpi.png", dest: "platforms/android/res/drawable-mdpi/icon.png"}
-        {src: "res/icon/android/icon-36-ldpi.png",  dest: "platforms/android/res/drawable-ldpi/icon.png"}
-        {src: "res/icon/android/icon-96-xhdpi.png", dest: "platforms/android/res/drawable-xhdpi/icon.png"}
+        {src: "res/icon/android/icon-96-xhdpi.png", dest: "#{androidRoot}/res/drawable/icon.png"}
+        {src: "res/icon/android/icon-72-hdpi.png",  dest: "#{androidRoot}/res/drawable-hdpi/icon.png"}
+        {src: "res/icon/android/icon-48-mdpi.png", dest: "#{androidRoot}/res/drawable-mdpi/icon.png"}
+        {src: "res/icon/android/icon-36-ldpi.png",  dest: "#{androidRoot}/res/drawable-ldpi/icon.png"}
+        {src: "res/icon/android/icon-96-xhdpi.png", dest: "#{androidRoot}/res/drawable-xhdpi/icon.png"}
       ]
 
     ios:
       files: [
-        { cwd: targetDir, dest: "platforms/ios/www/", src: "**", expand: yes }
+        { cwd: targetDir, dest: iosWWW , src: "**", expand: yes }
       ]
     android:
       files: [
-        { cwd: targetDir, dest: "platforms/android/assets/www", src: "**", expand: yes }
+        { cwd: targetDir, dest: androidWWW, src: "**", expand: yes }
       ]
 
   grunt.loadNpmTasks "grunt-contrib-handlebars"
