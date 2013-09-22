@@ -32,29 +32,37 @@ define [
       @circle = new google.maps.Circle options
 
       # create interval for pulsing radius
-      @renderPulseInterval = window.setInterval @renderPulse, 25
+      @renderPulse()
       @
 
     dispose: =>
       super
-      window.clearInterval @renderPulseInterval
+      if @renderPulseInterval
+        window.clearInterval @renderPulseInterval
 
     onPositionChange: (geolocation) =>
       super
       @circle.setCenter @marker.getPosition()
       @
 
+    setRadius: (radius) =>
+      @circle.setRadius radius
+
+    # 0 - 100
+    step: 0
     renderPulse: =>
-      unless @model.get 'accuracy'
-        return
-      # calculate current state of pulse radius
-      unless @pulseRadius?
-        @pulseRadius = @model.get('accuracy')
+
+      toValue = @model.get 'accuracy' # value when step = 100
+      duration = 0.5 # animation duration in seconds
+      delay = duration / toValue
+      radius = @step / 100 * toValue
+
+      if @step > 100
+        @step = 0
       else
-        @pulseRadius = @pulseRadius + 1
+        @step++;
 
-      # draw radius should not extend current accuracy
-      if @pulseRadius > @model.get('accuracy')
-        @pulseRadius = 1
+      @setRadius radius
 
-      @circle.setRadius @pulseRadius
+      # repeat till the end of time or @dispose is called
+      @renderPulseInterval = window.setTimeout @renderPulse, delay
