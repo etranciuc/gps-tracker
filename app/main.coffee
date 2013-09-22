@@ -12,7 +12,7 @@ require.config
     underscore: 'vendor/underscore.1.5.2.min'
     zepto: 'vendor/zepto.1.0.min'
     cordovaAndroid: 'vendor/cordova-2.7.0-android'
-    cordovaIOS: 'vendor/cordova-2.7.0-ios'
+    cordovaIOS: 'vendor/cordova-3.0.0-ios'
   # auto-loading dependencies should be defined here
   shim:
     application:
