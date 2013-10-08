@@ -55,26 +55,26 @@ define [
             @model.set 'speed', row[0]
             @model.get('speed').should.equal row[1]
 
-      describe 'toString', ->
-        it 'should format unknown positions', ->
-          @model.set(@model.defaults)
-          result = @model.toString()
-          result.should.equal 'unknown'
-        it 'should format lon/lat 0/0 correctly', ->
-          @model.set(@model.defaults)
-          @model.set
-            longitude: 0
-            latitude: 0
-          @model.toString().should.equal '0/0'
-        it 'should format positions with lat/lng', ->
-          @model.set(@model.defaults)
-          @model.set
-            longitude: 15.5
-            latitude: 12.3
-          @model.toString().should.equal '15.5/12.3'
-        it 'should include accuracy if set', ->
-          @model.set
-            longitude: 15.5
-            latitude: 12.3
-            accuracy: 5
-          @model.toString().should.equal '15.5/12.3 (5m)'
+    describe 'toString', ->
+      it 'should format unknown positions', ->
+        @model.set(@model.defaults)
+        result = @model.toString()
+        result.should.equal 'unknown'
+      it 'should format lon/lat 0/0 correctly', ->
+        @model.set(@model.defaults)
+        @model.set
+          longitude: 0
+          latitude: 0
+        @model.toString().should.equal '0/0'
+      it 'should format positions with lat/lng', ->
+        @model.set(@model.defaults)
+        @model.set
+          longitude: 15.5
+          latitude: 12.3
+        @model.toString().should.equal '15.5/12.3'
+      it 'should include accuracy if set', ->
+        @model.set
+          longitude: 15.5
+          latitude: 12.3
+          accuracy: 5
+        @model.toString().should.equal '15.5/12.3 (5m)'
