@@ -8,8 +8,9 @@ define [
   'views/map_route_view'
   'views/geolocation_info_view'
   'views/geolocation_accuracy_circle_view'
+  'views/geolocation_pulse_circle_view'
   'models/geolocation'
-], (Config, template, PageView, ConfigView, GeolocationMarkerView, MapView, MapRouteView, GeolocationInfoView, GeolocationAccuracyCircleView, Geolocation) ->
+], (Config, template, PageView, ConfigView, GeolocationMarkerView, MapView, MapRouteView, GeolocationInfoView, GeolocationAccuracyCircleView, GeolocationPulseCircleView, Geolocation) ->
   'use strict'
 
   class HomePageView extends PageView
@@ -79,5 +80,8 @@ define [
         map: @subview('map').map
         model: @geolocation
       @subview 'accuracyMarker', new GeolocationAccuracyCircleView
+        model: @geolocation
+        map: @subview('map').map
+      @subview 'pulseMarker', new GeolocationPulseCircleView
         model: @geolocation
         map: @subview('map').map
