@@ -44,7 +44,7 @@ define [
         return new google.maps.LatLng @get('latitude'), @get('longitude')
 
     startWatchPosition: =>
-      unless navigator.geolocation
+      unless navigator.geolocation?
         throw new Error """
         Unable to find navigator.geolocation support in the current client
         """
