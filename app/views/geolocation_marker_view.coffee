@@ -12,8 +12,6 @@ define [
 
     circle: null
 
-    renderPulseInterval: null
-
     render: ->
       super
       
@@ -33,15 +31,8 @@ define [
 
       @
 
-    dispose: =>
-      super
-      if @renderPulseInterval
-        window.clearInterval @renderPulseInterval
-
     onPositionChange: (geolocation) =>
       super
       @circle.setCenter @marker.getPosition()
+      @circle.setRadius geolocation.get 'accuracy'
       @
-
-    setRadius: (radius) =>
-      @circle.setRadius radius
