@@ -14,8 +14,8 @@ define [
       'change:latitude model': 'onPositionChange'
 
     render: ->
-      options = 
-        map: @options.map
+      options = _.defaults
+        map: @options.map, @options
       @marker = new google.maps.Marker options
       # click event handler
       google.maps.event.addListener @marker, 'click', @onClick
