@@ -43,8 +43,7 @@ define [
       latLng: ->
         return new google.maps.LatLng @get('latitude'), @get('longitude')
 
-    initialize: ->
-      super
+    startWatchPosition: =>
       unless navigator.geolocation
         throw new Error """
         Unable to find navigator.geolocation support in the current client
@@ -52,6 +51,7 @@ define [
       else
         navigator.geolocation.getCurrentPosition @onPositionUpdate, @onError, @options
         @watchPosition()
+      @
          
     pollCurrentPosition: =>
       if @pollIntervalId

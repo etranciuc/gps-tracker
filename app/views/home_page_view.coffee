@@ -28,6 +28,7 @@ define [
       super
       # central point of interest is the geolocation of the client
       @geolocation = new Geolocation
+      @geolocation.startWatchPosition()
       # @geolocation.watchPosition()
 
       @config = new Config
