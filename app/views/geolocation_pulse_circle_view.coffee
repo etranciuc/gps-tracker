@@ -2,9 +2,6 @@ define [
   'views/base/view'
 ], (View) ->
 
-  class Stepper
-
-
   # @TODO refactor together with accuracycircleview to OverlayMapView class or
   # something else
   class GeolocationPulseCircleView extends View
