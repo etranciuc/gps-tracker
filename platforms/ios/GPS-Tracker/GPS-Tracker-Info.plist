@@ -18,10 +18,6 @@
 			<array>
 				<string>icon-60</string>
 				<string>icon</string>
-				<string>gpstracker-57x57.png</string>
-				<string>gpstracker-114x114.png</string>
-				<string>gpstracker-72x72.png</string>
-				<string>gpstracker-144x144.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>
