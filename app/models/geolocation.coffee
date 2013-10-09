@@ -78,12 +78,12 @@ define [
         lastUpdate = position.timestamp
       # on other systems timestamp might be timestamp
       else
-          timestampString = new String position.timestamp
-          # chrome contains timestamp in seconds and all other browsers in
-          # seconds so we need to calculate a bit here
-          lastUpdate = new Date(position.timestamp)
-          if timestampString.length is 16
-            lastUpdate.setTime(position.timestamp / 1000)
+        timestampString = new String position.timestamp
+        # chrome contains timestamp in seconds and all other browsers in
+        # seconds so we need to calculate a bit here
+        lastUpdate = new Date(position.timestamp)
+        if timestampString.length is 16
+          lastUpdate.setTime(position.timestamp / 1000)
 
       @set 'lastUpdate', lastUpdate
       # update model with data from position.coords
