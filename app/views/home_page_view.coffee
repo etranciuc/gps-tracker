@@ -52,6 +52,10 @@ define [
           mapView.setCenter @geolocation
 
       # bind event to config changes
+      @config.on 'change:autoCenter', (config, value) =>
+        mapView = @subview 'map'
+        if value and mapView
+          mapView.setCenter @geolocation
       @config.on 'change:trackRoute', (config, value) =>
         if value is false
           @route.reset()
