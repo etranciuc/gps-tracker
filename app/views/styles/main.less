@@ -12,7 +12,19 @@ body, html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: none;
 	-webkit-font-smoothing: antialiased; // optimize font rendering
+	// disable selection of text
+	-webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
 }
+:focus {
+	outline: 0; // disable webkit outline on selected/clicked links and input elements
+}
+// disable android outline border
+a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-focus-ring-color: rgba(0, 0, 0, 0);
+}
+
 
 body {
 	background: @bodyBackground;
