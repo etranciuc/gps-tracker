@@ -13,7 +13,7 @@ define [
 
     options:
       fillColor: '#4579fd'
-      fillOpacity: 0.125
+      fillOpacity: 0.25
       strokeWeight: 0
       clickable: false
 
@@ -57,7 +57,7 @@ define [
       @circle.setRadius radius
 
       # opacity effect
-      opacityStart = 0.125
+      opacityStart = @options.fillOpacity
       opacityEnd = 0
       opacity = opacityStart + @step * (opacityEnd - opacityStart)
 

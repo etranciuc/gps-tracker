@@ -55,6 +55,8 @@ define [
       @config.on 'change:trackRoute', (config, value) =>
         if value is false
           @route.reset()
+        else
+          @route.add @geolocation
 
     onApplicationResize: (size) =>
       # info
