@@ -2,15 +2,11 @@ define [
   'views/base/marker_view'
 ], (MarkerView) ->
   
+  # @TODO create own view for markers with image icons
   class GeolocationMarkerView extends MarkerView
 
     options:
-      fillColor: '#4579fd'
-      fillOpacity: 0.125
-      strokeWeight: 0
       clickable: false
-
-    circle: null
 
     render: ->
       super
@@ -24,15 +20,4 @@ define [
         new google.maps.Size(imageSize / 2, imageSize / 2),
       @marker.setIcon image
 
-      # create circle for accuracy
-      options = _(@options).extend
-        center: @marker.getPosition()
-      @circle = new google.maps.Circle options
-
-      @
-
-    onPositionChange: (geolocation) =>
-      super
-      @circle.setCenter @marker.getPosition()
-      @circle.setRadius geolocation.get 'accuracy'
       @
