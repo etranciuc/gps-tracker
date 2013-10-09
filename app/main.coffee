@@ -7,7 +7,7 @@ require.config
   # Specify the paths of vendor libraries
   paths:
     backbone: 'vendor/backbone.1.0.0.min'
-    chaplin: 'vendor/chaplin.0.10.0'
+    chaplin: 'vendor/chaplin.0.11.1'
     handlebars: 'vendor/handlebars.1.0.0'
     underscore: 'vendor/underscore.1.5.2.min'
     zepto: 'vendor/zepto.1.0.min'
