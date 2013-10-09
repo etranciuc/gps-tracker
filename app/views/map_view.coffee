@@ -16,7 +16,7 @@ define [
     map: null
 
     position: (x, y) ->
-      console.info 'MapView.position', arguments
+      console.debug 'MapView.position', arguments
       @$el.css
         'margin-left': x
         'margin-top': y
@@ -27,7 +27,7 @@ define [
       @
 
     resize: (width, height) ->
-      console.info 'MapView.resize', arguments
+      console.debug 'MapView.resize', arguments
       @$el.css
         height: height
         widht: width

@@ -1,5 +1,6 @@
 define [
   'models/config'
+  'models/route'
   'views/templates/home'
   'views/base/page_view'
   'views/config_view'
@@ -8,7 +9,7 @@ define [
   'views/map_route_view'
   'views/geolocation_info_view'
   'models/geolocation'
-], (Config, template, PageView, ConfigView, GeolocationMarkerView, MapView, MapRouteView, GeolocationInfoView, Geolocation) ->
+], (Config, Route, template, PageView, ConfigView, GeolocationMarkerView, MapView, MapRouteView, GeolocationInfoView, Geolocation) ->
   'use strict'
 
   class HomePageView extends PageView
@@ -19,6 +20,7 @@ define [
     template: template
 
     geolocation: null
+    route: null
     config: null
 
     listen:
@@ -26,12 +28,20 @@ define [
 
     initialize: ->
       super
+      # configuration of the map view and route tracking
+      @config = new Config
+
       # central point of interest is the geolocation of the client
       @geolocation = new Geolocation
-      @geolocation.startWatchPosition()
-      # @geolocation.watchPosition()
-
-      @config = new Config
+      # enable random updates (when debugging)
+      @geolocation.startRandomUpdates()
+      # @geolocation.startWatchPosition()
+      
+      @route = new Route
+      # add a changed geoposition to the route if tracking is enabled
+      @geolocation.on 'change:longitude change:latitude', (position) =>
+        if @config.get 'trackRoute'
+          @route.add position.toJSON()
 
       # bind events to geolocation changes and config
       @geolocation.on 'change:longitude change:latitude', (position) =>
@@ -41,12 +51,8 @@ define [
 
       # bind event to config changes
       @config.on 'change:trackRoute', (config, value) =>
-        if value
-          @subview 'route', new MapRouteView
-            map: @subview('map').map
-            model: @geolocation
-        else
-          @subview('route').dispose()
+        if value is false
+          @route.reset()
 
     onApplicationResize: (size) =>
       # info
@@ -73,6 +79,10 @@ define [
         model: @geolocation
         container: @$el
         containerMethod: 'append'
+      # add view for the route
+      @subview 'route', new MapRouteView
+        map: @subview('map').map
+        collection: @route
       # add a marker for the geolocation of the client
       @subview 'positionMarker', new GeolocationMarkerView
         map: @subview('map').map

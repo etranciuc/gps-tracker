@@ -43,6 +43,23 @@ define [
       latLng: ->
         return new google.maps.LatLng @get('latitude'), @get('longitude')
 
+    # updates the geoposition by random values every interval milliseconds
+    startRandomUpdates: (delay = 1000, longitude = 13.4529, latitude = 52.5092) => 
+      # method that randomly updates geolocation
+      randomUpdate = =>
+        @set
+          longitude: longitude + (1 - Math.random() * 2) * Math.random() * 0.025
+          latitude: latitude + (1 - Math.random() * 2) * Math.random() * 0.025
+          accuracy: 10 + Math.random() * 20
+      # create interval
+      @randomUpdateInterval = window.setInterval randomUpdate, delay
+
+    # stops random updates
+    stopRandomUpdates: =>
+      if @randomUpdateInterval
+        window.clearInterval @randomUpdateInterval
+      @
+
     startWatchPosition: =>
       unless navigator.geolocation?
         throw new Error """
@@ -90,6 +107,8 @@ define [
       @set position.coords
 
       @set 'accuracy', 100
+
+      console.debug 'onPositionUpdate %s', @toString()
 
       # android devices need to get getCurrentPosition called in a defined interval
       # because watchPosition does not work
