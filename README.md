@@ -1,3 +1,8 @@
+# [Build-Status](https://circleci.com/gh/bevation/snoopet-mobile)
+
+* Master ![Master Build Status](https://circleci.com/gh/foobugs/gps-tracker/tree/master.png?circle-token=ca63b3f7271947d398dc47f8d7cb93c2b08c2195)
+* Development ![Development Build Status](https://circleci.com/gh/foobugs/gps-tracker/tree/development.png?circle-token=ca63b3f7271947d398dc47f8d7cb93c2b08c2195)
+
 Demo:
 ===============================================================================
 
