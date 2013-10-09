@@ -16,15 +16,14 @@ define [
       'change model': 'render'
       'error model': 'onModelError'
 
-    afterRender: ->
+    render: ->
       super
       @$errEl = @$el.find('.error')
       @$errEl.hide()
 
     onModelError: (geolocation, error) =>
-      @$errEl.html(
-        """
+      @$errEl.html """
         Error (#{error.code}): #{error.message}
-        """)
+        """
       @$errEl.show()
       @

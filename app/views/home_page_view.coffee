@@ -35,9 +35,8 @@ define [
 
       # central point of interest is the geolocation of the client
       @geolocation = new Geolocation
-      # enable random updates (when debugging)
-      @geolocation.startRandomUpdates 5000
-      # @geolocation.startWatchPosition()
+      @geolocation.startWatchPosition()
+      # @geolocation.startRandomUpdates 5000 # enable random updates (when debugging)
       
       @route = new Route
       # add a changed geoposition to the route if tracking is enabled

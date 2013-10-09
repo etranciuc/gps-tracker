@@ -24,3 +24,18 @@ define [
           $(window).trigger 'resize'
         ,
         1000
+
+      # auto detect day/night mode changes
+      window.setInterval @autoTheme, 1000
+
+    autoTheme: =>
+      hour = (new Date).getHours()
+      # check if it’s night time and switch over to night theme
+      if 6 <= hour <= 17
+        newTheme = 'default'
+      else
+        newTheme = 'night'
+      # only publish event if theme is changed  
+      if @lastTheme isnt newTheme
+        Chaplin.mediator.publish 'application:config:change:theme', newTheme, @lastTheme
+        @lastTheme = newTheme
