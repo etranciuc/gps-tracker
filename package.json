@@ -23,13 +23,13 @@
     }
   ],
   "engines": {
-    "postinstall": "grunt build",
     "node": "0.8.x",
     "npm": ">=1.1.x"
   },
   "scripts": {
     "build": "grunt build",
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "grunt build"
   },
   "main": "./server.coffee",
   "dependencies": {
