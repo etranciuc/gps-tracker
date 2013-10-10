@@ -38,6 +38,22 @@ define [
         if value >= 0
           return value
         return false
+      # transform position timestamp to real Date instance  
+      # if timestamp was not set, use current client’s time
+      lastUpdate: (value) ->
+        # on android systems timestamp is a Date object allready
+        if typeof value is 'object'
+          return value
+        # on other clients timestamp is a actual timestamp (seconds)
+        timestampString = new String value
+        # chrome seemes to be the only browser which posts the location
+        # timestamp in seconds, all other browsers post epoch milliseconds
+        # that’s why we have to convert milliseconds to seconds
+        if timestampString.length is 16
+          date = new Date()
+          date.setTime(value / 1000)
+          return date
+        return new Date(value)
 
     getters:
       latLng: ->
@@ -86,25 +102,12 @@ define [
         @onError "Position update with invalid position hash. (position.coords expected)"
         return
 
-      # @TODO move timestamp conversion to setters
-      # transform position timestamp to real Date instance  
-      # if timestamp was not set, use current client’s time
-      unless position.timestamp?
-        lastUpdate = new Date()
-      # on android systems timestamp is a Date object allready
-      else if typeof position.timestamp is 'object'
-        lastUpdate = position.timestamp
-      # on other systems timestamp might be timestamp
+      if position.timestamp?
+        @set 'lastUpdate', position.timestamp
       else
-        timestampString = new String position.timestamp
-        # chrome contains timestamp in seconds and all other browsers in
-        # seconds so we need to calculate a bit here
-        lastUpdate = new Date(position.timestamp)
-        if timestampString.length is 16
-          lastUpdate.setTime(position.timestamp / 1000)
-
-      @set 'lastUpdate', lastUpdate
-      # update model with data from position.coords
+        lastUpdate = new Date()
+        @set 'lastUpdate', new Date()
+      
       @set position.coords
 
       console.debug 'onPositionUpdate %s', @toString()

@@ -84,7 +84,7 @@ define [
           @model.get('lastUpdate').should.be.instanceOf Date
           @model.get('lastUpdate').getFullYear().should.equal 2013
         it 'should convert timestamps in milliseconds to Date', ->
-          timestampMilliseconds = 1381396828792 * 1000
+          timestampMilliseconds = 1381396828792000
           @model.onPositionUpdate
             coords: {}
             timestamp: timestampMilliseconds
