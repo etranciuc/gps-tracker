@@ -55,6 +55,42 @@ define [
             @model.set 'speed', row[0]
             @model.get('speed').should.equal row[1]
 
+    describe 'onPositionUpdate', ->
+      it 'should use all other values passed', ->
+        @model.onPositionUpdate
+          coords:
+            accuracy: 5
+            longitude: 2.0
+            latitude: 1.0
+        @model.get('accuracy').should.equal 5
+        @model.get('longitude').should.equal 2.0
+        @model.get('latitude').should.equal 1.0
+      describe 'lastUpdate', ->
+        it 'should set lastUpdate to Date if not passed', ->
+          @model.onPositionUpdate
+            coords: {}
+          @model.get('lastUpdate').should.be.instanceOf Date
+        it 'should use the Date which is passed', ->
+          date = new Date
+          @model.onPositionUpdate
+            coords: {}
+            timestamp: date
+          @model.get('lastUpdate').should.equal date
+        it 'should convert timestamps in seconds to Date', ->
+          timestamp = 1381396828792
+          @model.onPositionUpdate
+            coords: {}
+            timestamp: timestamp
+          @model.get('lastUpdate').should.be.instanceOf Date
+          @model.get('lastUpdate').getFullYear().should.equal 2013
+        it 'should convert timestamps in milliseconds to Date', ->
+          timestampMilliseconds = 1381396828792 * 1000
+          @model.onPositionUpdate
+            coords: {}
+            timestamp: timestampMilliseconds
+          @model.get('lastUpdate').should.be.instanceOf Date
+          @model.get('lastUpdate').getFullYear().should.equal 2013
+
     describe 'toString', ->
       it 'should format unknown positions', ->
         @model.set(@model.defaults)

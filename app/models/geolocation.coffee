@@ -86,6 +86,7 @@ define [
         @onError "Position update with invalid position hash. (position.coords expected)"
         return
 
+      # @TODO move timestamp conversion to setters
       # transform position timestamp to real Date instance  
       # if timestamp was not set, use current client’s time
       unless position.timestamp?
@@ -105,8 +106,6 @@ define [
       @set 'lastUpdate', lastUpdate
       # update model with data from position.coords
       @set position.coords
-
-      @set 'accuracy', 100
 
       console.debug 'onPositionUpdate %s', @toString()
 

@@ -10,7 +10,6 @@ define [
 
     render: ->
       super
-      
       # replace icon
       imageSize = 32
       image = new google.maps.MarkerImage 'images/poi.png',
